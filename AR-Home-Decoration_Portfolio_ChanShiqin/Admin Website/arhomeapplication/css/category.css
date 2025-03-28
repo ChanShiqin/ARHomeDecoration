@@ -1,0 +1,318 @@
+/* START Fixed content for each css file */
+
+/* Category-specific styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+/*    overflow: hidden;*/
+}
+
+.content {
+    margin-top: 75px;
+    transition: margin-left 0.3s, width 0.3s;
+/*    background-color: grey;*/
+    width: 100%;
+    background-color: #F0F0F0;
+    overflow-y: auto;
+    left: 220px;
+}
+
+.content-box {
+    margin: 18px;
+    width: cal(100%-230px);
+    min-height: calc(100% - 36px);
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px 30px;
+}
+
+/*END Fixed content for each css file*/
+
+/* Filter and add button bar */
+.filterandaddbutton {
+    display: flex;
+    margin-bottom: 15px;
+    padding-right: 0;
+}
+
+/* Ensure the column containing the button has no extra margin or padding */
+.filterandaddbutton .col-lg-2 {
+    padding-right: 0; /* Remove padding on the right side */
+    padding-left: 0;
+}
+
+#add-button {
+    background-color: #5B68C5; /* Initial color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: left;
+    text-decoration: none; /* Remove underline from link */
+    width: 105px;
+}
+
+#add-button:hover {
+    background-color: #4A56A1; 
+}
+
+#filterDropdown {
+    background-color: none;
+    border: 1px solid #E0E0E0;
+    color: black;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; 
+    width: 120px;
+    float: right; 
+    margin: 0;
+}
+
+.dropdown-menu {
+    width: 120px !important; 
+    min-width: 120px !important; 
+    box-shadow: none !important; 
+    padding: 5px 0;
+}
+
+#dropdown-order-menu {
+    width: 150px !important; 
+    min-width: 120px !important; 
+    box-shadow: none !important; 
+    padding: 5px 0;
+}
+
+.filter-container {
+    margin: 0 !important;
+    display: inline-block;
+    /* float: right; */
+    padding: 0 !important;
+}
+
+/* Additional styles for the grey bar */
+.greybar {
+    background-color: #F9F9F9;
+    border-radius: 5px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures space between items */
+}
+
+/* Styles for the search box */
+.searchbox {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 5px;
+    height: 35px; /* Adjust height as needed */
+}
+
+.searchbox .input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.searchbox .input-group-text {
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+    color: black;
+}
+
+.searchbox .form-control {
+    border: none;
+    padding: 5px; /* Adjust padding to match height */
+    height: 100%; /* Full height */
+    border-radius: 0;
+}
+
+/* Ensure the categories text is centered vertically */
+.categories {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Makes sure it takes full height of the greybar */
+    margin: 0; /* Removes default margins */
+}
+
+/* Styles for the number input field */
+.perpage input[type="number"] {
+    width: 60px; /* Adjust the width as needed */
+    padding: 5px;
+    margin: 0 5px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    height: 35px;
+    text-align: center;
+    background-color: white;
+}
+
+.itemtable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: solid 1px #ececec;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* checkbox */
+
+.itemtable input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.itemtable th {
+    font-weight: normal;
+    padding-left: 20px;
+    text-align: left;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.itemtable th:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;  
+    height: 15px; 
+    background-color: #ececee; 
+}
+
+/* Apply background color to odd rows */
+.itemtable tbody tr:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+/* Apply background color to even rows */
+.itemtable tbody tr:nth-child(even) {
+    background-color: white;
+}
+
+.itemtable td {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.icons {
+    width: 50px;
+    height: 50px;
+}
+
+/* Style for the status box */
+.status-box {
+    display: inline-flex;
+    align-items: center;
+    background-color: #cae4d1;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: lighter;
+    color: #28A745;
+}
+
+/* Style for the status dot */
+.status-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #28A745;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.status-box .status-text {
+    font-weight: 300; /* Lighten the font weight */
+    color: #28A745;
+}
+
+/* Inactive Status */
+.status.inactive {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f9d4d9;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: lighter;
+    color: #DC3545;
+}
+
+.status.inactive .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #DC3545;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.editicon {
+    width: 18px;
+    height: 18px;
+    text-decoration: none;
+}
+
+/* Pagination styles */
+.pagination-container {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Add space between the page items */
+}
+
+.pagination .page-link {
+    border: 1px solid #E0E0E0; /* Grey outer line */
+    padding: 5px 10px;
+    color: #333;
+    background-color: transparent; /* No background */
+    font-size: 12px; /* Small size */
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #f1f1f1; /* Light hover effect */
+    text-decoration: none;
+}
+
+.pagination .active .page-link {
+    border-color: #333; /* Highlight active page with a darker border */
+    color: #333;
+    background-color: transparent;
+    cursor: default;
+}
+
+.pagination .page-link[aria-disabled="true"] {
+    cursor: not-allowed;
+}
+ 

@@ -1,0 +1,386 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ProductDetailsActivity"
+    android:background="#FFFFFF" >
+
+    <!-- Include the header layout -->
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- White space with '<< Back' text -->
+    <RelativeLayout
+        android:id="@+id/backWhiteSpace"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/headerLayout"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:id="@+id/backTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt; Back"
+            android:textSize="16sp"
+            android:textColor="#747474"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/backWhiteSpace"
+        android:layout_above="@id/footerLayout" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/productImageViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"/>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/imageIndicatorDots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"/>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/productTitleBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EAEAEA">
+
+                <!-- Product title -->
+                <TextView
+                    android:id="@+id/productTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bookxcase with panel/glass doors, white, 80x30x202 cm"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:padding="16dp" />
+
+                <!-- Horizontal LinearLayout for price and stock count -->
+                <LinearLayout
+                    android:id="@+id/priceStockLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/productTitleTextView">
+
+                    <!-- Product price -->
+                    <TextView
+                        android:id="@+id/productPriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="RM 100.00"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                    <ImageView
+                        android:id="@+id/arViewBotton"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/baseline_view_in_ar_24"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/stockButtonLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/priceStockLayout" >
+
+                    <!-- Stock count -->
+                    <TextView
+                        android:id="@+id/stockCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="20 items left"
+                        android:textColor="#827979"
+                        android:textSize="10sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:layout_marginRight="60dp"/>
+
+                    <!-- Add to cart button -->
+                    <Button
+                        android:id="@+id/addToCartButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add to Cart"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:backgroundTint="#FAA541"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/priceStockLayout"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="10dp"
+                        android:textAllCaps="false" />
+
+                    <!-- Buy now button -->
+                    <Button
+                        android:id="@+id/addToFileButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add to File"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:backgroundTint="#FF6A6A"
+                        android:layout_toStartOf="@id/addToCartButton"
+                        android:layout_below="@id/priceStockLayout"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:textAllCaps="false" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/descriptionBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingTop="12dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="#EAEAEA">
+
+                <!-- Horizontal LinearLayout for price and stock count -->
+                <LinearLayout
+                    android:id="@+id/descriptionBoxLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/productTitleBox"
+                    tools:ignore="NotSibling" >
+
+                    <!-- Product Brand -->
+                    <TextView
+                        android:id="@+id/brandTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.65"
+                        android:layout_height="wrap_content"
+                        android:text="Brand"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                    <TextView
+                        android:id="@+id/brandTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="dwell"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                </LinearLayout>
+
+                <!-- Horizontal LinearLayout for material -->
+                <LinearLayout
+                    android:id="@+id/materialBoxLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/descriptionBoxLayout1"
+                    tools:ignore="NotSibling" >
+
+                    <!-- Product Brand -->
+                    <TextView
+                        android:id="@+id/materialTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.65"
+                        android:layout_height="wrap_content"
+                        android:text="Material"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                    <TextView
+                        android:id="@+id/materialTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Fabric"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                </LinearLayout>
+
+                <!-- Horizontal LinearLayout for size -->
+                <LinearLayout
+                    android:id="@+id/sizeBoxLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/materialBoxLayout1"
+                    tools:ignore="NotSibling" >
+
+                    <!-- Product Brand -->
+                    <TextView
+                        android:id="@+id/sizeTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.65"
+                        android:layout_height="wrap_content"
+                        android:text="Size (in cm)"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                    <TextView
+                        android:id="@+id/sizeTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Fabric"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                </LinearLayout>
+
+                <!-- Horizontal LinearLayout for price and stock count -->
+                <LinearLayout
+                    android:id="@+id/descriptionBoxLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/sizeBoxLayout1"
+                    tools:ignore="NotSibling" >
+
+                    <!-- Product Warrenty -->
+                    <TextView
+                        android:id="@+id/warrentyTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.65"
+                        android:layout_height="wrap_content"
+                        android:text="Warrenty"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                    <TextView
+                        android:id="@+id/warrentyTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="None"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                </LinearLayout>
+
+                <!-- Horizontal LinearLayout for price and stock count -->
+                <LinearLayout
+                    android:id="@+id/descriptionBoxLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/descriptionBoxLayout2"
+                    tools:ignore="NotSibling" >
+
+                    <!-- Product Warrenty -->
+                    <TextView
+                        android:id="@+id/descriptionTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.65"
+                        android:layout_height="wrap_content"
+                        android:text="Description"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="This sofa set blablabla Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+Typography"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="2dp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Include the footer layout -->
+    <include
+        android:id="@+id/footerLayout"
+        layout="@layout/activity_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

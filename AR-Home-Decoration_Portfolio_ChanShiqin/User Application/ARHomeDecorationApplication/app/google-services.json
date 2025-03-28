@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "497447156897",
+    "firebase_url": "https://arhomedecorationapplication-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "arhomedecorationapplication",
+    "storage_bucket": "arhomedecorationapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497447156897:android:15e0aef8d5458a5365c4e0",
+        "android_client_info": {
+          "package_name": "com.example.arhomedecorationapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT2s3LctyDSiwbjKglvB5DB7wbhNGvv14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

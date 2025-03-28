@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/userAdded"
+    android:layout_width="45dp"
+    android:layout_height="45dp"
+    android:gravity="center"
+    android:background="@drawable/round_button"
+    android:tooltipText="Click to view email" >
+
+    <TextView
+        android:id="@+id/userInitial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>

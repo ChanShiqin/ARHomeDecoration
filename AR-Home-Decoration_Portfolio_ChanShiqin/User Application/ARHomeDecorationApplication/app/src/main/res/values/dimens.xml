@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Define a 15dp space for category separation -->
+    <dimen name="space_15dp">15dp</dimen>
+    <!-- Define other dimensions if needed -->
+    <dimen name="space_10dp">10dp</dimen>
+    <dimen name="space_16dp">16dp</dimen>
+</resources>

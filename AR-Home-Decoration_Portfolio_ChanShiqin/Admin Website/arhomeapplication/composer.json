@@ -1,0 +1,18 @@
+{
+    "name": "shiqin/arhomeapplication",
+    "description": "An AR Home Application project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Shiqin\\Arhomeapplication\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "shiqin"
+        }
+    ],
+    "require": {
+        "kreait/firebase-php": "^5.26"
+    }
+}

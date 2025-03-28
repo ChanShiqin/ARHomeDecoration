@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".SettingActivity"
+    android:background="#FFFFFF">
+
+    <!-- Include the header layout -->
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- White space with '<< Back' text -->
+    <RelativeLayout
+        android:id="@+id/backWhiteSpace"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/headerLayout"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:id="@+id/backTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt; Back"
+            android:textSize="16sp"
+            android:textColor="#747474"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/backWhiteSpace"
+        android:layout_above="@id/footerLayout"
+        android:background="#EAEAEA" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/categoryDetailsCategoryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order History"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp" />
+
+            <!-- Dynamic product boxes container -->
+            <LinearLayout
+                android:id="@+id/productContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
+                android:gravity="center" >
+
+                <LinearLayout
+                    android:id="@+id/OrderItemContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Include the footer layout -->
+    <include
+        android:id="@+id/footerLayout"
+        layout="@layout/activity_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

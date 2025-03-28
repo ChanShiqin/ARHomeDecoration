@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer circle -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/white" /> <!-- Yellow color for checked state -->
+            <size android:width="15dp" android:height="15dp" />
+            <stroke android:width="1dp" android:color="#B0B0B0" />
+        </shape>
+    </item>
+    <!-- Location icon centered inside -->
+    <item android:drawable="@drawable/location_icon" android:gravity="center" android:height="15dp" android:width="15dp"/>
+</layer-list>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ARHomeDecorationApplication</string>
+    <string name="enter_your_email_or_username">Enter your email or username</string>
+
+    <string-array name="states_array">
+        <item>Select State</item>
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Melaka</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Pulau Pinang</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+        <item>Kuala Lumpur</item>
+        <item>Labuan</item>
+        <item>Putrajaya</item>
+    </string-array>
+</resources>

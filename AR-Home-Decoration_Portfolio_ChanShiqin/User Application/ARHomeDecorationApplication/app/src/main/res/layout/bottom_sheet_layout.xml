@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/light_grey_border">
+
+    <!-- Selected Color / Design and Price -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Product Image (square) -->
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/product1_image"  />
+
+        <!-- Text Information (Color/Design, Price, Stock) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Selected Color/Design -->
+            <TextView
+                android:id="@+id/selectedColorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <!-- Price -->
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RM 29.99"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Stock Left -->
+            <TextView
+                android:id="@+id/stockText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stock: 25"
+                android:textColor="#8C8C8C"
+                android:textSize="12sp"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="15dp"/>
+
+    <!-- Color/Design Selection Chips (kept as before) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color / Design"
+        android:textColor="@color/black"
+        android:layout_weight="1"
+        android:paddingEnd="8dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/colorChipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true">
+        <!-- Color/Design Selection Chips (kept as before) -->
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/orangeChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orange"
+            android:textColor="@color/black"
+            app:chipBackgroundColor="@color/unselected_chip_color"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/blackChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Black"
+            android:textColor="@color/black"
+            app:chipBackgroundColor="@color/unselected_chip_color"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/whiteChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="White"
+            android:textColor="@color/black"
+            app:chipBackgroundColor="@color/unselected_chip_color"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Quantity Selection (unchanged) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:paddingEnd="8dp" />
+
+        <!-- Decrement Button -->
+        <TextView
+            android:id="@+id/decrementButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_background" />
+
+        <!-- Quantity EditText -->
+        <EditText
+            android:id="@+id/quantityEditText"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="4dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="10sp"
+            android:textColorHint="@color/black"
+            android:hint="1"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/black"/>
+
+        <!-- Increment Button -->
+        <TextView
+            android:id="@+id/incrementButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:text="+"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_background" />
+    </LinearLayout>
+
+    <!-- Add to Cart Button (unchanged) -->
+    <Button
+        android:id="@+id/confirmAddToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Cart"
+        android:layout_marginTop="6dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="#FAA541" />
+
+</LinearLayout>

@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".CategoryListActivity"
+    android:background="#FFFFFF">
+
+    <!-- Include the header layout -->
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- White space with '<< Back' text -->
+    <RelativeLayout
+        android:id="@+id/backWhiteSpace"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/headerLayout"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:id="@+id/backTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt; Back"
+            android:textSize="16sp"
+            android:textColor="#747474"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/backWhiteSpace"
+        android:layout_above="@id/footerLayout" >
+
+<!--    In gpt, it direct replace this with the inner linearLayout, later c how    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/categoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+<!--                android:padding="16dp" />-->
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Include the footer layout -->
+    <include
+        android:id="@+id/footerLayout"
+        layout="@layout/activity_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
+
+<!--    &lt;!&ndash; category box 1 &ndash;&gt;-->
+<!--<RelativeLayout-->
+<!--android:id="@+id/categoryBox"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA">-->
+
+<!--&lt;!&ndash; Living Room text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/categoryNameText"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Living Room"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:layout_marginTop="15dp"-->
+<!--    android:layout_marginStart="15dp"/>-->
+
+<!--&lt;!&ndash; View More text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/viewMoreTextView"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="View More >>"-->
+<!--    android:textSize="13sp"-->
+<!--    android:textColor="#747474"-->
+<!--    android:layout_alignParentEnd="true"-->
+<!--    android:layout_marginEnd="15dp"-->
+<!--    android:layout_marginTop="20dp"/>-->
+
+<!--</RelativeLayout>-->
+
+<!--<HorizontalScrollView-->
+<!--android:id="@+id/categoryProductBox"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="200dp"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA"-->
+<!--android:padding="15dp">-->
+
+<!--&lt;!&ndash; Content inside the horizontally scrollable box &ndash;&gt;-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    &lt;!&ndash; Add a vertical LinearLayout for product boxes &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        &lt;!&ndash; Box 1 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 2 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 3 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 4 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 5 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->
+<!--</HorizontalScrollView>-->
+
+<!--<Space-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="15dp" />-->
+
+<!--    &lt;!&ndash; category box 2 &ndash;&gt;-->
+<!--<RelativeLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA">-->
+
+<!--&lt;!&ndash; Category Name text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/category2Text"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Dining Area"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:layout_marginTop="15dp"-->
+<!--    android:layout_marginStart="15dp"/>-->
+
+<!--&lt;!&ndash; View More text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/viewMoreTextView2"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="View More >>"-->
+<!--    android:textSize="13sp"-->
+<!--    android:textColor="#747474"-->
+<!--    android:layout_alignParentEnd="true"-->
+<!--    android:layout_marginEnd="15dp"-->
+<!--    android:layout_marginTop="20dp"/>-->
+
+<!--</RelativeLayout>-->
+
+<!--<HorizontalScrollView-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="200dp"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA"-->
+<!--android:padding="15dp">-->
+
+<!--&lt;!&ndash; Content inside the horizontally scrollable box &ndash;&gt;-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    &lt;!&ndash; Add a vertical LinearLayout for product boxes &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        &lt;!&ndash; Box 1 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 2 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 3 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 4 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 5 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->
+<!--</HorizontalScrollView>-->
+
+
+<!--<Space-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="15dp" />-->
+
+<!--    &lt;!&ndash; category box 3 &ndash;&gt;-->
+<!--<RelativeLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA">-->
+
+<!--&lt;!&ndash; Living Room text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/category3Text"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Bedroom"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:layout_marginTop="15dp"-->
+<!--    android:layout_marginStart="15dp"/>-->
+
+<!--&lt;!&ndash; View More text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/viewMoreTextView3"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="View More >>"-->
+<!--    android:textSize="13sp"-->
+<!--    android:textColor="#747474"-->
+<!--    android:layout_alignParentEnd="true"-->
+<!--    android:layout_marginEnd="15dp"-->
+<!--    android:layout_marginTop="20dp"/>-->
+
+<!--</RelativeLayout>-->
+
+<!--<HorizontalScrollView-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="200dp"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA"-->
+<!--android:padding="15dp">-->
+
+<!--&lt;!&ndash; Content inside the horizontally scrollable box &ndash;&gt;-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    &lt;!&ndash; Add a vertical LinearLayout for product boxes &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        &lt;!&ndash; Box 1 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 2 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 3 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 4 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 5 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->
+<!--</HorizontalScrollView>-->
+
+<!--<Space-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="15dp" />-->
+
+<!--    &lt;!&ndash; category box 4 &ndash;&gt;-->
+<!--<RelativeLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA">-->
+
+<!--&lt;!&ndash; Living Room text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/category4Text"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="Bathroom"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:layout_marginTop="15dp"-->
+<!--    android:layout_marginStart="15dp"/>-->
+
+<!--&lt;!&ndash; View More text &ndash;&gt;-->
+<!--<TextView-->
+<!--    android:id="@+id/viewMoreTextView4"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="View More >>"-->
+<!--    android:textSize="13sp"-->
+<!--    android:textColor="#747474"-->
+<!--    android:layout_alignParentEnd="true"-->
+<!--    android:layout_marginEnd="15dp"-->
+<!--    android:layout_marginTop="20dp"/>-->
+
+<!--</RelativeLayout>-->
+
+<!--<HorizontalScrollView-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="200dp"-->
+<!--android:scrollbars="none"-->
+<!--android:background="#EAEAEA"-->
+<!--android:padding="15dp">-->
+
+<!--&lt;!&ndash; Content inside the horizontally scrollable box &ndash;&gt;-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    &lt;!&ndash; Add a vertical LinearLayout for product boxes &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        &lt;!&ndash; Box 1 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 2 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 3 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 4 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Box 5 &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#F1F1F1"-->
+<!--            android:padding="13dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+
+<!--            &lt;!&ndash; Product Image &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1.2"-->
+<!--                android:src="@drawable/product1_image"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"/>-->
+
+<!--            &lt;!&ndash; Product Description &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.6"-->
+<!--                android:textSize="8sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="Bookcase with panel/glass doors, white, 80x30x202 cm"-->
+<!--                android:gravity="center" />-->
+
+<!--            &lt;!&ndash; Pricing &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="0.2"-->
+<!--                android:textSize="12sp"-->
+<!--                android:text="RM 100.00"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->
+<!--</HorizontalScrollView>-->

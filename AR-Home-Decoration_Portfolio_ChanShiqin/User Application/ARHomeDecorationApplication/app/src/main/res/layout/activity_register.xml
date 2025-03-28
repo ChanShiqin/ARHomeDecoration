@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        android:paddingBottom="50dp">
+
+        <!-- Full-width Image at the Top 35% -->
+        <ImageView
+            android:id="@+id/topImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/register_img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.25"
+            android:adjustViewBounds="true" />
+
+        <!-- Text Below Image (Create account and For new user) -->
+        <TextView
+            android:id="@+id/createAccountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create account"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/topImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <TextView
+            android:id="@+id/newUserSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="For new user"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/createAccountTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Full Name Label -->
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Full Name"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/newUserSubtitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Full Name Input -->
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your full name"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/nameLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Email/Username Label -->
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Email - as your username"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/nameEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Email/Username Input -->
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your email"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/emailLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Phone No. Label -->
+        <TextView
+            android:id="@+id/phoneNoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Phone Number"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/emailEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Phone No. Input -->
+        <EditText
+            android:id="@+id/phoneNoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Phone No."
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/phoneNoLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Password Label -->
+        <TextView
+            android:id="@+id/passwordLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Password"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/phoneNoEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Password Input -->
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/passwordLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:inputType="textPassword" />
+
+        <!-- Confirm Password Label -->
+        <TextView
+            android:id="@+id/confirmPasswordLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Confirm Password"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/passwordEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Confirm Password Input -->
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm your password"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/confirmPasswordLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:inputType="textPassword" />
+
+        <!-- Confirm Password Label -->
+        <TextView
+            android:id="@+id/addressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Address"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/confirmPasswordEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Confirm Password Input -->
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your address"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/addressLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Poscode Label -->
+        <TextView
+            android:id="@+id/poscodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Poscode"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/addressEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- Poscode Input -->
+        <EditText
+            android:id="@+id/poscodeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your poscode"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#858585"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@id/poscodeLabel"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- State Label -->
+        <TextView
+            android:id="@+id/stateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="State"
+            android:textColor="#858585"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/poscodeEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+        <!-- State Dropdown -->
+        <Spinner
+            android:id="@+id/stateSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/white"
+            android:theme="@style/CustomSpinnerStyle"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            app:layout_constraintTop_toBottomOf="@id/stateLabel" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signupButton"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_signup_button_background"
+            style="@style/CustomButtonStyle"
+            android:text="Sign up"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/stateSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="25dp"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Already have account? Login"
+            android:textColor="#827979"
+            app:layout_constraintTop_toBottomOf="@id/signupButton"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="leftGuideline" type="id" />
+    <item name="rightGuideline" type="id" />
+    <item name="homeIcon" type="id" />
+    <item name="homeTextView" type="id" />
+    <item name="shopIcon" type="id" />
+    <item name="productTitleBox" type="id" />
+</resources>

@@ -1,0 +1,505 @@
+/* START Fixed content for each css file */
+
+/* Category-specific styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+/*    overflow: hidden;*/
+}
+
+.content {
+    margin-top: 75px;
+    transition: margin-left 0.3s, width 0.3s;
+    width: 100%;
+    background-color: #F0F0F0;
+    overflow-y: auto;
+    left: 220px;
+}
+
+.content-box {
+    margin: 18px;
+    width: cal(100%-230px);
+    min-height: calc(100% - 36px);
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px 30px;
+}
+
+/*END Fixed content for each css file*/
+
+
+/* Filter and add button bar */
+.filterandaddbutton {
+    display: flex;
+    margin-bottom: 15px;
+    padding-right: 0;
+}
+
+/* Ensure the column containing the button has no extra margin or padding */
+.filterandaddbutton .col-lg-2 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#add-button {
+    background-color: #5B68C5; /* Initial color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: left;
+    text-decoration: none; /* Remove underline from link */
+    width: 105px;
+}
+
+#add-button:hover {
+    background-color: #4A56A1; /* Darker shade for hover effect */
+}
+
+.formframe {
+    width: calc(100% + 23px); /* Adjust for padding if necessary */
+    border: solid 1px #ececec;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: hidden;
+    margin-right: 0; /* Ensure no right margin */
+}
+
+.bigtitle {
+    font-size: 24px;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    /* padding-bottom: 10px; */
+}
+
+.formtitle {
+    font-size: 17px;
+    /* font-size: 20px; */
+    margin: 0;
+    padding-top: 0;
+}
+
+hr.line {
+    border: 0;
+    height: 1px;
+    background-color: #b0b0b0; /* Light grey line */
+    margin: 5px 0 15px 0; /* Adjust space around the line */
+    /* margin: 15px 0; */
+}
+
+.formtitledescription {
+    font-size: 12px;
+}
+
+.title {
+    font-size: 10px;
+    margin-bottom: 3px;
+    margin-left: 0;
+    padding-top: 5px;
+}
+
+input[type=text] {
+    background-color: #f0f0f0;
+    border-radius: 5px; 
+    border: 1px solid #dcdcdc; 
+    padding: 8px 12px; 
+    font-size: 14px; 
+}
+
+input[type=number] {
+    background-color: #f0f0f0;
+    border-radius: 5px; 
+    border: 1px solid #dcdcdc; 
+    padding: 8px 12px; 
+    font-size: 14px; 
+}
+
+.inputfield::placeholder {
+    font-size: 12px; 
+    color: #a9a9a9; 
+}
+
+textarea {
+    background-color: #f0f0f0 !important;
+    border-radius: 5px; 
+    border: 1px solid #dcdcdc; 
+    padding: 8px 12px; 
+    font-size: 12px; 
+}
+
+select#productCategory, #productSupplier {
+    background-color: #f0f0f0 !important;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #a9a9a9;
+}
+
+select#productCategory.option-selected {
+    font-size: 14px; /* Font size after selection */
+    color: #333; /* Adjust color to improve readability */
+}
+
+select#productSupplier.option-selected {
+    font-size: 14px; /* Font size after selection */
+    color: #333; /* Adjust color to improve readability */
+}
+
+#btn-submit {
+    background-color: #5B68C5; /* Grey color similar to other buttons */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 105px; /* Adjust width to fit content */
+    text-align: center; /* Center text */
+    margin-bottom: 10px;
+    float: right;
+}
+
+#btn-submit:hover {
+    background-color: #4A56A1;
+}
+
+#btn-back {
+    background-color: #5B68C5; /* Grey color similar to other buttons */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 105px; /* Adjust width to fit content */
+    text-align: center; /* Center text */
+    margin-bottom: 10px;
+    float: left;
+}
+
+#btn-back:hover {
+    background-color: #4A56A1;
+}
+
+/* Steps bar */
+/* Step Progress */
+.step-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Horizontal line through circles */
+.step-progress::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #ddd; /* Default line color */
+    z-index: -1;
+}
+
+/* Line between circles will be colored as the steps progress */
+.step-progress .active ~ .step-progress::before {
+    background-color: #5B68C5; /* Active line color */
+}
+
+.step {
+    text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+/* Circles for each step */
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd; /* Default circle color */
+    line-height: 40px;
+    color: white;
+    font-size: 18px;
+    display: inline-block;
+    z-index: 1;
+}
+
+/* Active circles are highlighted */
+.active {
+    background-color: #5B68C5; /* Active step color */
+}
+
+/* Step text under the circle */
+.step p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Highlight active step text */
+.step .circle.active + p {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Color the line between active circles */
+.active + .step::before {
+    background-color: #5B68C5; /* Same color as active circle */
+}
+
+#warrantyDurationUnit {
+    background-color: white !important;
+}
+
+/* warranty start */
+.warranty-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-radio {
+    width: 16px; /* Adjust size */
+    height: 16px; /* Adjust size */
+}
+
+/* .custom-radio:checked {
+    background-color: #5B68C5 !important; 
+    border-color: #5B68C5 !important; 
+} */
+
+.form-check-label {
+    margin-left: 5px; /* Add spacing between radio and label */
+    font-size: 14px;
+}
+
+.form-check-inline {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Add spacing between Yes and No */
+}
+
+/* Customize radio button appearance */
+.form-check-input {
+    border-radius: 50%;
+    border: 2px solid #5B68C5;
+    cursor: pointer;
+}
+
+/* product design start here */
+
+.product-specs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.product-spec-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    /* background-color: #f8f8f8; */
+    width: calc(33.333% - 10px);
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+    position: relative;
+    /* text-align: center; */
+}
+
+.product-spec-box p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-spec-box .spec-detail {
+    font-weight: normal;
+    color: #666;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    color: red;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.remove-btn i {
+    font-size: 18px;
+}
+
+.remove-btn:hover {
+    color: darkred;
+}
+
+
+:root {
+    --primary-color: #306ce8;
+    --primary-dark-color: #1544b7;
+    --white-color: #fff;
+    --black-10-color: rgba(0, 0, 0, 0.1);
+    --black-20-color: rgba(0, 0, 0, 0.2);
+    --black-50-color: rgba(0, 0, 0, 0.5);
+    --transition: all 300ms ease-in-out;
+}
+
+.wrapper img {
+    width: 100%;
+}
+
+.wrapper {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.upload {
+    border-radius: 10px;
+    /* box-shadow: rgb(21, 68, 183); */
+    width: 340px;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.upload-info p {
+    opacity: 0.6;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.upload-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-img {
+    width: 340px;
+    padding: 0; /* Default padding to 0 when no images */
+    max-height: 300px;
+    overflow-y: auto; /* Set to auto to only show scrollbar when needed */
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-img::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px var(--black-20-color);
+    border-radius: 6px;
+}
+
+.upload-img::-webkit-scrollbar-thumb {
+    background-color: var(--black-10-color);
+    border-radius: 6px;
+}
+
+.upload-img::-webkit-scrollbar {
+    width: 5px;
+}
+
+.upload-area {
+    padding: 20px;
+    border: 2px dashed var(--black-20-color);
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.upload-area:hover {
+    background-color: rgba(176, 196, 246, 0.1);
+}
+
+.upload-area-img img {
+    max-width: 80px;
+}
+
+.upload-area-text {
+    font-weight: 700;
+    color: var(--black-50-color);
+}
+
+.upload-area-text span {
+    color: var(--primary-color);
+}
+
+.visibility-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.upload-img {
+    width: 340px;
+}
+
+.uploaded-img {
+    padding: 4px 0;
+    position: relative;
+}
+
+/* remove image button */
+.remove-btn {
+    width: 22px;
+    height: 22px;
+    background-color: var(--white-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.remove-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* VIEW PAGE CSS */
+
+.billTitle {
+    font-size: 12px;
+    margin: 0;
+}
+
+.billName {
+    font-size: 17px;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.billAddress {
+    font-size: 15px;
+    margin: 0;
+    padding-bottom: 5px;
+    color: #808080;
+}

@@ -1,0 +1,130 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".CartActivity"
+    android:background="#FFFFFF" >
+
+    <!-- Include the header layout -->
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- White space with '<< Back' text -->
+    <RelativeLayout
+        android:id="@+id/backWhiteSpace"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/headerLayout"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:id="@+id/backTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt; Back"
+            android:textSize="16sp"
+            android:textColor="#747474"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/backWhiteSpace"
+        android:layout_above="@id/totalPriceWhiteSpace"
+        android:background="#EAEAEA">
+
+        <LinearLayout
+            android:id="@+id/cartItemsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Centered No Item Message -->
+    <TextView
+        android:id="@+id/no_item_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:text="No items available"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#888888" />
+
+    <!-- White space -->
+    <LinearLayout
+        android:id="@+id/totalPriceWhiteSpace"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:layout_above="@id/footerLayout"
+        android:background="@android:color/white">
+
+        <!-- Total Amount -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="Total Amount :"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="#000000" />
+
+        <!-- Total Price -->
+        <TextView
+            android:id="@+id/totalPriceTextView"
+            android:layout_width="100dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:maxWidth="100dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="70dp"
+            android:text="RM 599.00"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Payment button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cartPaymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:padding="2dp"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="0dp"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <!-- Include the footer layout -->
+    <include
+        android:id="@+id/footerLayout"
+        layout="@layout/activity_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

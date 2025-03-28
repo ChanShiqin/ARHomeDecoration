@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".EditProfile2Activity"
+    android:background="#FFFFFF">
+
+    <!-- Include the header layout -->
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/activity_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- White space with '<< Back' text -->
+    <RelativeLayout
+        android:id="@+id/backWhiteSpace"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/headerLayout"
+        android:background="@android:color/white" >
+
+        <TextView
+            android:id="@+id/backTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt; Back"
+            android:textSize="16sp"
+            android:textColor="#747474"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/backWhiteSpace"
+        android:layout_above="@id/footerLayout" >
+
+        <LinearLayout
+            android:id="@+id/editProfileContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/editProfilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/user_default_img"
+                android:scaleType="centerCrop"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/userEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="user@example.com"
+                android:textSize="16sp"
+                android:textColor="#747474"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Full Name"-->
+<!--                android:textColor="#747474"-->
+<!--                android:textSize="14sp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/editUserName"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Kelvin Tan"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="#000000"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:hint="Enter your full name"-->
+<!--                android:inputType="textPersonName"/>-->
+
+            <!-- Email/Username Label -->
+            <TextView
+                android:id="@+id/fullNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="Full Name"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
+            <!-- Email/Username Input -->
+            <EditText
+                android:id="@+id/editUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#858585"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:ellipsize="start"
+                android:text="Kelvin Tan"
+                android:hint="Enter your full name"
+                android:textSize="16sp"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:inputType="textPersonName" />
+
+            <!-- Email/Username Label -->
+            <TextView
+                android:id="@+id/phoneNoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="Phone Number"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
+            <!-- Email/Username Input -->
+            <EditText
+                android:id="@+id/editPhoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#858585"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:ellipsize="start"
+                android:text="(123) 456-7890"
+                android:hint="Enter your phone number"
+                android:textSize="16sp"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:inputType="textPersonName" />
+
+            <!-- Email/Username Label -->
+            <TextView
+                android:id="@+id/addressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="Address"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
+            <!-- Email/Username Input -->
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#858585"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:ellipsize="start"
+                android:text="123 Main St, Springfield"
+                android:hint="Enter your address"
+                android:textSize="16sp"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:inputType="textPersonName" />
+
+            <!-- Email/Username Label -->
+            <TextView
+                android:id="@+id/poscodeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="Poscode"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
+            <!-- Email/Username Input -->
+            <EditText
+                android:id="@+id/editPoscode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#858585"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:ellipsize="start"
+                android:text="12300"
+                android:hint="Enter your poscode"
+                android:textSize="16sp"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:inputType="textPersonName" />
+
+            <!-- Email/Username Label -->
+            <TextView
+                android:id="@+id/stateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="State"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
+            <!-- Email/Username Input -->
+            <EditText
+                android:id="@+id/editState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#858585"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColor="@android:color/black"
+                android:ellipsize="start"
+                android:text="Penang"
+                android:hint="Enter your state"
+                android:textSize="16sp"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:inputType="textPersonName" />
+
+            <!-- Save Changes Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveChangesButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Save Changes"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:background="@drawable/button_edit_profile"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:elevation="4dp"
+                android:textAllCaps="false" />
+
+            <!-- Cancel Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancelButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Cancel"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:background="@drawable/button_cancel"
+                android:elevation="4dp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Include the footer layout -->
+    <include
+        android:id="@+id/footerLayout"
+        layout="@layout/activity_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

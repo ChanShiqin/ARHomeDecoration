@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.navbar {
+    width: 200px;
+    background-color: #2B2B2B;
+    /* background-color: #333; */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black; 
+    transition: width 0.3s;
+}
+
+.minimized {
+    width: 70px;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    transition: display 0.3s;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.sidenav {
+    margin-top: 45px;
+    flex-grow: 1;
+}
+
+.sidenav a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 12px;
+    transition: margin 0.3s;
+}
+
+.minimized .sidenav a {
+    margin-left: 15px;
+    margin-right: 15px;
+    justify-content: center;
+}
+
+.sidenav i {
+    font-size: 22px;
+    margin-right: 15px;
+}
+
+.minimized .sidenav i {
+    margin-right: 0;
+}
+
+.suppliericon i {
+    font-size: 20px;
+    margin-right: 13px;
+}
+
+.settingbottom {
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    transition: margin 0.3s;
+}
+
+.minimized .settingbottom {
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+}
+
+.settingbottom a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.settingbottom i {
+    font-size: 22px;
+    margin-right: 15px;
+}
+
+.minimized .settingbottom i {
+    margin-right: 0;
+}
+
+.maincontent {
+    margin-left: 200px;
+    transition: margin-left 0.3s;
+}
+
+.minimized + .maincontent {
+    margin-left: 70px;
+}
+
+.header {
+    background-color: #2B2B2B;
+    /* background-color: #333; */
+    display: flex;
+    align-items: center;
+    height: 75px;
+    color: white;
+    width: 100%;
+    width: calc(100% - 200px);
+    float: right;
+    position: fixed;
+/*    position: absolute;*/
+    padding-left: 2%;
+    transition: width 0.3s;
+}
+
+.minimized + .maincontent .header {
+    width: calc(100% - 60px);
+}
+
+.header i {
+    margin-right: 4%;
+    font-size: 22px;
+}
+
+.header h3 {
+    margin-top: 7px;
+    font-size: 20px;
+    margin-right: auto;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.notification-bell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.notification-bell i {
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.username {
+    margin-right: 60px;
+    font-size: 15px;
+}
+
+.notification-bell {
+    position: relative;
+}
+
+.notification-bell .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 50%;
+}

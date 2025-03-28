@@ -1,0 +1,12 @@
+READ ME
+
+ADMIN WEBSITE ACCOUNT:
+admin@gmail.com
+Qwe12345!
+
+USER APPLICATION ACTIVATE PAYMENT GATEWAY API IN YOUR WIFI IP ADDRESS:
+1. Open the user applictaion code folder in android studio.
+2. Open RetrofitInstance kotlin file in the kotlin folder. (The only orange kotlin file icon in the folder)
+3. Search your wifi ip address using your terminal / Command Prompt, then type "ifconfig" to get your ip address.
+4. Copy your ip address then replace your ip address with "192.168.0.249" in .baseUrl("http://192.168.0.249/stripe-android-api/").
+5. Run the app.

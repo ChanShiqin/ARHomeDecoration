@@ -1,0 +1,216 @@
+/* START Fixed content for each css file */
+
+/* Category-specific styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+/*    overflow: hidden;*/
+}
+
+.content {
+    margin-top: 75px;
+    transition: margin-left 0.3s, width 0.3s;
+    width: 100%;
+    background-color: #F0F0F0;
+    overflow-y: auto;
+    left: 220px;
+}
+
+.content-box {
+    margin: 18px;
+    width: cal(100%-230px);
+    min-height: calc(100% - 36px);
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px 30px;
+}
+
+/*END Fixed content for each css file*/
+
+/* Filter and add button bar */
+.filterandaddbutton {
+    display: flex;
+    margin-bottom: 15px;
+    padding-right: 0;
+}
+
+/* Ensure the column containing the button has no extra margin or padding */
+.filterandaddbutton .col-lg-2 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#add-button {
+    background-color: #5B68C5; /* Initial color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: left;
+    text-decoration: none; /* Remove underline from link */
+    width: 105px;
+}
+
+#add-button:hover {
+    background-color: #4A56A1; /* Darker shade for hover effect */
+}
+
+.formframe {
+    width: calc(100% + 23px); /* Adjust for padding if necessary */
+    border: solid 1px #ececec;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: hidden;
+    margin-right: 0; /* Ensure no right margin */
+}
+
+.bigtitle {
+    font-size: 24px;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    /* padding-bottom: 10px; */
+}
+
+.formtitle {
+    font-size: 17px;
+    /* font-size: 20px; */
+    margin: 0;
+    padding-top: 0;
+}
+
+hr.line {
+    border: 0;
+    height: 1px;
+    background-color: #b0b0b0; /* Light grey line */
+    margin: 5px 0 15px 0; /* Adjust space around the line */
+    /* margin: 15px 0; */
+}
+
+.formtitledescription {
+    font-size: 12px;
+}
+
+.title {
+    font-size: 10px;
+    margin-bottom: 3px;
+    margin-left: 0;
+    padding-top: 5px;
+}
+
+input[type=text] {
+    background-color: #f0f0f0;
+    border-radius: 5px; 
+    border: 1px solid #dcdcdc; 
+    padding: 8px 12px; 
+    font-size: 14px; 
+}
+
+.inputfield::placeholder {
+    font-size: 12px; 
+    color: #a9a9a9; 
+}
+
+textarea {
+    background-color: #f0f0f0 !important;
+    border-radius: 5px; 
+    border: 1px solid #dcdcdc; 
+    padding: 8px 12px; 
+    font-size: 14px; 
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.switch input {
+    display: none;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+.status-label {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#categoryIconUpload {
+    background-color: #f0f0f0; /* Match the background color of the other fields */
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%; /* Ensure it takes up the full width like the other input fields */
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#categoryIconUpload::file-selector-button {
+    background-color: #97a2ab; /* Grey color for the button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#categoryIconUpload::file-selector-button:hover {
+    background-color: #6f6f6f !important;  /* Slightly darker grey for hover effect */
+}
+
+input[type="file"]:hover {
+    border-color: #b0b0b0; /* Slightly darker border on hover */
+}
+
+#btn-submit {
+    background-color: #5B68C5; /* Grey color similar to other buttons */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 105px; /* Adjust width to fit content */
+    text-align: center; /* Center text */
+    margin-bottom: 10px;
+}
+
+#btn-submit:hover {
+    background-color: #4A56A1;
+}
