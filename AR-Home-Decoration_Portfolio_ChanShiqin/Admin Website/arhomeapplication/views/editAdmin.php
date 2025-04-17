@@ -128,6 +128,53 @@ if (!$data) {
 
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <p class="col-12 title" style="padding-left: 0;"><b>DEPARTMENT</b></p>
+                                <!-- <select id="adminDepartment" name="adminDepartment" class="form-control inputfield" required>
+                                    <option value="" disabled selected>-- Select Department --</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Customer Service">Customer Service</option>
+                                    <option value="Inventory">Inventory</option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Delivery">Delivery</option>
+                                    <option value="Purchasing">Purchasing</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="IT">IT</option>
+                                    <option value="HR">HR</option>
+                                    <option value="Accounting">Accounting</option>
+                                </select> -->
+                                <select id="adminDepartment" name="adminDepartment" class="form-control inputfield" required>
+                                    <!-- <option value="" disabled>-- Select Department --</option> -->
+                                    <option value="" disabled <?php echo empty($data['adminDepartment']) ? 'selected' : ''; ?> class="placeholder">-- Select Department --</option>
+                                    <?php
+                                    $departments = ["Sales", "Customer Service", "Inventory", "Warehouse", "Delivery", "Purchasing", "Marketing", "IT", "HR", "Accounting"];
+                                    foreach ($departments as $dept) {
+                                        $selected = ($data['adminDepartment'] === $dept) ? 'selected' : '';
+                                        echo "<option value=\"$dept\" $selected>$dept</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <p class="col-12 title" style="padding-left: 0;"><b>ROLE PERMISSION LEVEL</b></p>
+                                <!-- <select id="adminRoleLevel" name="adminRoleLevel" class="form-control inputfield" required>
+                                    <option value="" disabled selected>-- Select Role --</option>
+                                    <option value="3">Super Admin</option>
+                                    <option value="2">Admin / Manager</option>
+                                    <option value="1">Staff</option>
+                                </select> -->
+                                <select id="adminRoleLevel" name="adminRoleLevel" class="form-control inputfield" required>
+                                    <!-- <option value="" disabled>-- Select Role --</option> -->
+                                    <option value="" disabled <?php echo empty($data['adminRoleLevel']) ? 'selected' : ''; ?> class="placeholder">-- Select Role --</option>
+                                    <option value="3" <?php if ($data['adminRoleLevel'] == "3") echo "selected"; ?>>Super Admin</option>
+                                    <option value="2" <?php if ($data['adminRoleLevel'] == "2") echo "selected"; ?>>Manager</option>
+                                    <option value="1" <?php if ($data['adminRoleLevel'] == "1") echo "selected"; ?>>Staff</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <p class="col-12 title" style="padding-left: 0;"><b>PASSWORD</b></p>
                                 <input type="password" name="adminPassword" id="adminPassword" class="form-control inputfield" placeholder="Enter Password" value="<?php echo $data['adminPassword'] ?>" required
                                     pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" 
@@ -192,6 +239,51 @@ if (!$data) {
             }
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selects = [document.getElementById("adminDepartment"), document.getElementById("adminRoleLevel")];
+
+            selects.forEach(select => {
+                select.addEventListener("change", function () {
+                    if (this.value !== "") {
+                        this.classList.add("option-selected");
+                    } else {
+                        this.classList.remove("option-selected");
+                    }
+                });
+            });
+        });
+    </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const departmentSelect = document.getElementById("adminDepartment");
+    const roleSelect = document.getElementById("adminRoleLevel");
+
+    function updateSelectColor(selectElement) {
+        if (selectElement.value !== "") {
+            selectElement.style.color = "#333"; // Dark text
+        } else {
+            selectElement.style.color = "#a9a9a9"; // Lighter grey for placeholder
+        }
+    }
+
+    // Initially update colors based on existing values
+    updateSelectColor(departmentSelect);
+    updateSelectColor(roleSelect);
+
+    // Listen for changes
+    departmentSelect.addEventListener("change", function () {
+        updateSelectColor(departmentSelect);
+    });
+
+    roleSelect.addEventListener("change", function () {
+        updateSelectColor(roleSelect);
+    });
+});
+</script>
+
     
 </body>
 </html>

@@ -16,4 +16,5 @@
     <!-- Define the color for selected chips -->
     <color name="selected_chip_color">#BDBDBD</color>
     <color name="grey">#cccccc</color>
+    <color name="red">#FF0000</color>
 </resources>

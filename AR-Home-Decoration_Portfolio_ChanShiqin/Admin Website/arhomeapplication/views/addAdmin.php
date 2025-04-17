@@ -106,6 +106,36 @@ $_SESSION['last_activity'] = time(); // Update the last activity time
                             </div>
                         </div>
 
+
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <p class="col-12 title" style="padding-left: 0;"><b>DEPARTMENT</b></p>
+                                <select id="adminDepartment" name="adminDepartment" class="form-control inputfield" required>
+                                    <option value="" disabled selected>-- Select Department --</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Customer Service">Customer Service</option>
+                                    <option value="Inventory">Inventory</option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Delivery">Delivery</option>
+                                    <option value="Purchasing">Purchasing</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="IT">IT</option>
+                                    <option value="HR">HR</option>
+                                    <option value="Accounting">Accounting</option>
+                                </select>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <p class="col-12 title" style="padding-left: 0;"><b>ROLE PERMISSION LEVEL</b></p>
+                                <select id="adminRoleLevel" name="adminRoleLevel" class="form-control inputfield" required>
+                                    <option value="" disabled selected>-- Select Role --</option>
+                                    <option value="3">Super Admin</option>
+                                    <option value="2">Manager</option>
+                                    <option value="1">Staff</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <p class="col-12 title" style="padding-left: 0;"><b>PASSWORD</b></p>
@@ -120,6 +150,7 @@ $_SESSION['last_activity'] = time(); // Update the last activity time
                                 <span id="passwordError" style="color: red; display: none;">Passwords do not match. Please try again.</span>
                             </div>
                         </div>
+
 
 <!--                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -188,6 +219,22 @@ $_SESSION['last_activity'] = time(); // Update the last activity time
             } else {
                 errorMessage.style.display = 'none'; // Hide the error message
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selects = [document.getElementById("adminDepartment"), document.getElementById("adminRoleLevel")];
+
+            selects.forEach(select => {
+                select.addEventListener("change", function () {
+                    if (this.value !== "") {
+                        this.classList.add("option-selected");
+                    } else {
+                        this.classList.remove("option-selected");
+                    }
+                });
+            });
         });
     </script>
     

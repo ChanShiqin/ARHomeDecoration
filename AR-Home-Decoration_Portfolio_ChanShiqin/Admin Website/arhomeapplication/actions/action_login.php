@@ -7,6 +7,9 @@ session_start();
 include("../config.php");
 include("../firebaseRDB.php");
 
+$adminDepartment = $_SESSION['admin']['adminDepartment'];
+$adminRoleLevel = $_SESSION['admin']['adminRoleLevel'];
+
 $email = strtolower($_POST['email']);
 $password = $_POST['password'];
 
@@ -35,6 +38,8 @@ if ($email == "") {
             $_SESSION['admin'] = [
                 'id' => $id,
                 'adminName' => $data[$id]['adminName'] ?? 'Admin',
+                'adminDepartment' => $data[$id]['adminDepartment'] ?? '',
+                'adminRoleLevel' => $data[$id]['adminRoleLevel'] ?? '',
             ];
 
             if (isset($_POST['remember_me'])) {
@@ -52,9 +57,22 @@ if ($email == "") {
             //     setcookie('email', '', time() - 3600, "/");
             //     setcookie('password', '', time() - 3600, "/");
             // }
+            
+            // header("location: ../views/dashboard.php");
+            // exit();
 
-            header("location: ../views/dashboard.php");
-            exit();
+            // ✅ Move this logic here after $_SESSION['admin'] is set
+    if (
+        strtolower($data[$id]['adminDepartment']) === "delivery"
+        && intval($data[$id]['adminRoleLevel']) === 1
+    ) {
+        header("Location: ../views/order.php");
+        exit();
+    } else {
+        header("Location: ../views/dashboard.php");
+        exit();
+    }
+          
         } else {
             $_SESSION['error_message'] = "Invalid password, please try again.";
             header("Location: ../views/login.php");  // Redirect back to login page with error

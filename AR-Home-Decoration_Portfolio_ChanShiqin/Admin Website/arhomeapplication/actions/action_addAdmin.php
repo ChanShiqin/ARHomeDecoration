@@ -8,6 +8,8 @@ $adminProfilePic = $_FILES['adminProfilePic'];
 $adminName = $_POST['adminName'];
 $adminPhoneNo = $_POST['adminPhoneNo'];
 $adminEmail = $_POST['adminEmail'];
+$adminDepartment = $_POST['adminDepartment'];
+$adminRoleLevel = $_POST['adminRoleLevel'];
 $adminPassword = $_POST['adminPassword'];
 
 // Validate inputs
@@ -43,6 +45,18 @@ if (empty($adminPhoneNo)) {
 
 if (empty($adminEmail)) {
     $_SESSION['error'] = 'Admin email is required';
+    header("Location: ../views/addAdmin.php");
+    exit();
+}
+
+if (empty($adminDepartment)) {
+    $_SESSION['error'] = 'Admin department is required';
+    header("Location: ../views/addAdmin.php");
+    exit();
+}
+
+if (empty($adminRoleLevel)) {
+    $_SESSION['error'] = 'Admin role level is required';
     header("Location: ../views/addAdmin.php");
     exit();
 }
@@ -121,6 +135,8 @@ if ($adminExists) {
         "adminName" => $adminName,
         "adminPhoneNo" => $adminPhoneNo,
         "adminEmail" => $adminEmail,
+        "adminDepartment" => $adminDepartment,
+        "adminRoleLevel" => $adminRoleLevel,
         "adminPassword" => $adminPassword // Save status as Active or Inactive
     ]);
 

@@ -39,6 +39,15 @@ $startIndex = ($page - 1) * $itemsPerPage;
 
 // Slice the data to display only the current page's categories
 $adminToShow = ($data) ? array_slice($data, $startIndex, $itemsPerPage) : [];
+
+// $_SESSION['adminRoleLevel'] = $retrievedAdmin['adminRoleLevel']; // Ensure this is set during login
+
+// $loggedInAdminRole = $_SESSION['adminRoleLevel'] ?? '';
+
+// var_dump($_SESSION['adminRoleLevel']);
+
+$adminRoleLevel = $_SESSION['admin']['adminRoleLevel'];
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +70,11 @@ $adminToShow = ($data) ? array_slice($data, $startIndex, $itemsPerPage) : [];
         <div class="content-box">
             <div class="row filterandaddbutton">
                 <div class="col-xs-4 col-sm-6 col-md-9 col-lg-2">
-                    <a href="addAdmin.php" class="btn add-button" id="add-button">+ Add New</a>
+                
+                    <!-- <a href="addAdmin.php" class="btn add-button" id="add-button">+ Add New</a> -->
+                    <?php if ((int)$adminRoleLevel === 3): ?>
+                        <a href="addAdmin.php" class="btn add-button" id="add-button">+ Add New</a>
+                    <?php endif; ?>
                 </div>
                 <!-- <div class="col-xs-8 col-sm-6 col-md-3 col-lg-10 filter-container" >
                     <button class="btn dropdown-toggle filter-button" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -140,13 +153,19 @@ $adminToShow = ($data) ? array_slice($data, $startIndex, $itemsPerPage) : [];
                                         <td>{$admin['adminPhoneNo']}</td>
                                         <td>{$admin['adminEmail']}</td>
                                         <td>
-                                            <a href='editAdmin.php?id=$id' style='text-decoration: none;'>
-                                                <img src='../images/edit_icon.png' alt='Edit Icon' class='editicon'>
-                                            </a>
+
+                                            " . ((int)$adminRoleLevel === 3 ? "
+                                                <a href='editAdmin.php?id=$id' style='text-decoration: none;'>
+                                                    <img src='../images/edit_icon.png' alt='Edit Icon' class='editicon'>
+                                                </a>
+                                            " : "") . "
                                             &nbsp;
-                                            <a href='deleteAdmin.php?id=$id' class='delete-link' onclick='return confirm(\"Are you sure you want to delete this admin?\");'>
-                                                <img src='../images/delete_icon.png' alt='Delete Icon' class='editicon'>
-                                            </a>
+                                            " . ((int)$adminRoleLevel === 3 ? "
+                                                <a href='deleteAdmin.php?id=$id' class='delete-link' onclick='return confirm(\"Are you sure you want to delete this admin?\");'>
+                                                    <img src='../images/delete_icon.png' alt='Delete Icon' class='editicon'>
+                                                </a>
+                                            " : "") . "
+
                                         </td>
                                     </tr>";
                                 }
@@ -157,6 +176,14 @@ $adminToShow = ($data) ? array_slice($data, $startIndex, $itemsPerPage) : [];
                     </tbody>
                 </table>
             </div>
+<!-- 
+            <a href='editAdmin.php?id=$id' style='text-decoration: none;'>
+                <img src='../images/edit_icon.png' alt='Edit Icon' class='editicon'>
+            </a>
+
+            <a href='deleteAdmin.php?id=$id' class='delete-link' onclick='return confirm(\"Are you sure you want to delete this admin?\");'>
+                <img src='../images/delete_icon.png' alt='Delete Icon' class='editicon'>
+            </a> -->
 
             <div class="pagination-container">
                 <nav aria-label="Page navigation example">

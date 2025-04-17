@@ -82,6 +82,20 @@
                     android:layout_gravity="left"
                     android:scaleType="centerInside" />
 
+<!--                <ImageButton-->
+<!--                    android:id="@+id/managePersonButton"-->
+<!--                    android:layout_width="45dp"-->
+<!--                    android:layout_height="45dp"-->
+<!--                    android:src="@drawable/manage_person"-->
+<!--                    android:background="@drawable/round_button"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_below="@id/folderName"-->
+<!--                    android:contentDescription="Manage Person"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:layout_gravity="left"-->
+<!--                    android:scaleType="centerInside" />-->
+
                 <ImageButton
                     android:id="@+id/deleteFolderButton"
                     android:layout_width="45dp"

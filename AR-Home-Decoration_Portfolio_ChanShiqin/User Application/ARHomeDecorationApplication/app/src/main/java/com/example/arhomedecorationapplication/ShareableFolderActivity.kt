@@ -196,3 +196,4 @@ class ShareableFolderActivity : AppCompatActivity() {
         cartIconImageView.setOnClickListener { startActivity(Intent(this, CartActivity::class.java)) }
     }
 }
+

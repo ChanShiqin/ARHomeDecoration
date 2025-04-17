@@ -105,13 +105,77 @@ class HomeActivity : AppCompatActivity() {
         })
     }
 
+//    private fun fetchProductDetails(productIds: List<String>) {
+//        // Step 4: Fetch product details for the top 6 products
+//        productsRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                hotItemsRecyclerView.removeAllViews() // Clear existing views
+//
+//                var count = 0
+//                for (productSnapshot in snapshot.children) {
+//                    val productId = productSnapshot.child("id").getValue(String::class.java)
+//                    if (productId != null && productIds.contains(productId) && count < 6) {
+//                        val productName = productSnapshot.child("productName").getValue(String::class.java)
+//                        val productImages = productSnapshot.child("productImages").children
+//                        val productSpecs = productSnapshot.child("productSpecs").children
+//
+//                        val productImageBase64 = productImages.firstOrNull()?.getValue(String::class.java)
+//                        val productPrice = productSpecs.minByOrNull { it.child("productPrice").getValue(Int::class.java) ?: Int.MAX_VALUE }
+//                            ?.child("productPrice")?.getValue(Int::class.java) ?: 0
+//
+//                        // Step 5: Create and add the product box to the RecyclerView
+////                        val productBoxView = LayoutInflater.from(this@HomeActivity).inflate(R.layout.product_box, null)
+//                        val productBoxView = LayoutInflater.from(this@HomeActivity).inflate(R.layout.product_box, hotItemsRecyclerView, false)
+//
+//
+//                        // Set margin bottom for the product box
+//                        // Set up LayoutParams for margin bottom
+//                        val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+//                        layoutParams.setMargins(dpToPx(0), 0, dpToPx(0), dpToPx(10)) // Adjusting marginBottom here
+//
+//                        productBoxView.layoutParams = layoutParams
+//
+//                        val productImageView: ImageView = productBoxView.findViewById(R.id.productImage)
+//                        val productTitleView: TextView = productBoxView.findViewById(R.id.productTitle)
+//                        val productPriceView: TextView = productBoxView.findViewById(R.id.productPrice)
+//
+//                        // Decode the base64 image and set it
+//                        productImageBase64?.let {
+//                            val bitmap = decodeBase64ToBitmap(it)
+//                            productImageView.setImageBitmap(bitmap)
+//                        }
+//
+//                        productTitleView.text = productName ?: "Unknown Product"
+//                        productPriceView.text = "RM $productPrice"
+//
+//                        // Add the product box to the RecyclerView
+//                        hotItemsRecyclerView.addView(productBoxView)
+//                        count++
+//
+//                        // Set OnClickListener to navigate to ProductDetailsActivity with productId
+//                        productBoxView.setOnClickListener {
+//                            val intent = Intent(this@HomeActivity, ProductDetailsActivity::class.java)
+//                            intent.putExtra("productId", productId)  // Pass the productId
+//                            startActivity(intent) // Start the ProductDetailsActivity
+//                        }
+//                    }
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.e("HomeActivity", "Failed to fetch products: ${error.message}")
+//            }
+//        })
+//    }
+
     private fun fetchProductDetails(productIds: List<String>) {
-        // Step 4: Fetch product details for the top 6 products
         productsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 hotItemsRecyclerView.removeAllViews() // Clear existing views
 
                 var count = 0
+                val topProducts = mutableListOf<View>()
+
                 for (productSnapshot in snapshot.children) {
                     val productId = productSnapshot.child("id").getValue(String::class.java)
                     if (productId != null && productIds.contains(productId) && count < 6) {
@@ -123,21 +187,24 @@ class HomeActivity : AppCompatActivity() {
                         val productPrice = productSpecs.minByOrNull { it.child("productPrice").getValue(Int::class.java) ?: Int.MAX_VALUE }
                             ?.child("productPrice")?.getValue(Int::class.java) ?: 0
 
-                        // Step 5: Create and add the product box to the RecyclerView
-                        val productBoxView = LayoutInflater.from(this@HomeActivity).inflate(R.layout.product_box, null)
+                        // Inflate the layout properly
+                        val productBoxView = LayoutInflater.from(this@HomeActivity)
+                            .inflate(R.layout.hot_item_product_view, hotItemsRecyclerView, false)
+//                            .inflate(R.layout.product_box, hotItemsRecyclerView, false)
 
-                        // Set margin bottom for the product box
-                        // Set up LayoutParams for margin bottom
-                        val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                        layoutParams.setMargins(dpToPx(0), 0, dpToPx(0), dpToPx(10)) // Adjusting marginBottom here
-
+                        // Apply consistent margin using layout params
+                        val layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        )
+                        layoutParams.setMargins(dpToPx(0), dpToPx(0), dpToPx(0), dpToPx(10)) // Smaller consistent margin
+//                        layoutParams.setMargins(dpToPx(10), dpToPx(5), dpToPx(10), dpToPx(5)) // Smaller consistent margin
                         productBoxView.layoutParams = layoutParams
 
                         val productImageView: ImageView = productBoxView.findViewById(R.id.productImage)
                         val productTitleView: TextView = productBoxView.findViewById(R.id.productTitle)
                         val productPriceView: TextView = productBoxView.findViewById(R.id.productPrice)
 
-                        // Decode the base64 image and set it
                         productImageBase64?.let {
                             val bitmap = decodeBase64ToBitmap(it)
                             productImageView.setImageBitmap(bitmap)
@@ -146,17 +213,21 @@ class HomeActivity : AppCompatActivity() {
                         productTitleView.text = productName ?: "Unknown Product"
                         productPriceView.text = "RM $productPrice"
 
-                        // Add the product box to the RecyclerView
-                        hotItemsRecyclerView.addView(productBoxView)
-                        count++
-
-                        // Set OnClickListener to navigate to ProductDetailsActivity with productId
                         productBoxView.setOnClickListener {
                             val intent = Intent(this@HomeActivity, ProductDetailsActivity::class.java)
-                            intent.putExtra("productId", productId)  // Pass the productId
-                            startActivity(intent) // Start the ProductDetailsActivity
+                            intent.putExtra("productId", productId)
+                            startActivity(intent)
                         }
+
+                        // Collect the productBox to add later
+                        topProducts.add(productBoxView)
+                        count++
                     }
+                }
+
+                // Add all product views at once
+                for (box in topProducts) {
+                    hotItemsRecyclerView.addView(box)
                 }
             }
 

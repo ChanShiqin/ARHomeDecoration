@@ -111,48 +111,156 @@ class ProductDetailsActivity : AppCompatActivity() {
         })
     }
 
+//    private fun showFolderSelectionDialog(folders: List<Pair<String, String>>) {
+//        val folderNames = folders.map { it.second } // Extract folder names
+//
+//        val builder = AlertDialog.Builder(this)
+//        builder.setTitle("Select or Create Folder")
+//
+//        if (folderNames.isEmpty()) {
+//            builder.setMessage("No folders available. You can create a new folder.")
+//        } else {
+//            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, folderNames)
+//            builder.setAdapter(adapter) { _, which ->
+//                saveProductToFolder(folders[which].first, false)
+//            }
+//        }
+//
+//        builder.setNegativeButton("Create New Folder") { _, _ ->
+//            showCreateNewFolderDialog()
+//        }
+//
+//        builder.setPositiveButton("Cancel") { dialog, _ -> dialog.dismiss() }
+//        builder.show()
+//    }
+
+//    private fun showFolderSelectionDialog(folders: List<Pair<String, String>>) {
+//        val dialogView = layoutInflater.inflate(R.layout.dialog_create_favourite_folder, null)
+//        val folderListView = dialogView.findViewById<ListView>(R.id.folderListView)
+//        val btnCreateFolder = dialogView.findViewById<Button>(R.id.btnCreateFolder)
+//        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
+//
+//        val folderNames = folders.map { it.second }
+//        val adapter = ArrayAdapter(this, R.layout.list_item_folder, R.id.folderItemText, folderNames)
+////        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, folderNames)
+//        folderListView.adapter = adapter
+//
+//        val alertDialog = AlertDialog.Builder(this)
+//            .setView(dialogView)
+//            .create()
+//
+//        folderListView.setOnItemClickListener { _, _, position, _ ->
+//            val selectedFolderId = folders[position].first
+//            saveProductToFolder(selectedFolderId, false)
+//            alertDialog.dismiss()
+//        }
+//
+//        btnCreateFolder.setOnClickListener {
+//            alertDialog.dismiss()
+//            showCreateNewFolderDialog()
+//        }
+//
+//        btnCancel.setOnClickListener {
+//            alertDialog.dismiss()
+//        }
+//
+//        alertDialog.show()
+//    }
+
     private fun showFolderSelectionDialog(folders: List<Pair<String, String>>) {
-        val folderNames = folders.map { it.second } // Extract folder names
+        val dialogView = layoutInflater.inflate(R.layout.dialog_create_favourite_folder, null)
+        val folderListView = dialogView.findViewById<ListView>(R.id.folderListView)
+        val btnCreateFolder = dialogView.findViewById<Button>(R.id.btnCreateFolder)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
 
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Select or Create Folder")
+        // Setup the folder list
+        val folderNames = folders.map { it.second }
+        val adapter = ArrayAdapter(this, R.layout.list_item_folder, R.id.folderItemText, folderNames)
+        folderListView.adapter = adapter
 
-        if (folderNames.isEmpty()) {
-            builder.setMessage("No folders available. You can create a new folder.")
-        } else {
-            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, folderNames)
-            builder.setAdapter(adapter) { _, which ->
-                saveProductToFolder(folders[which].first, false)
-            }
+        val alertDialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        folderListView.setOnItemClickListener { _, _, position, _ ->
+            val selectedFolderId = folders[position].first
+            saveProductToFolder(selectedFolderId, false)
+            alertDialog.dismiss()
         }
 
-        builder.setNegativeButton("Create New Folder") { _, _ ->
+        btnCreateFolder.setOnClickListener {
+            alertDialog.dismiss()
             showCreateNewFolderDialog()
         }
 
-        builder.setPositiveButton("Cancel") { dialog, _ -> dialog.dismiss() }
-        builder.show()
+        btnCancel.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 
-    private fun showCreateNewFolderDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Create New Folder")
-        val input = android.widget.EditText(this)
-        input.hint = "Enter folder name"
-        builder.setView(input)
 
-        builder.setPositiveButton("Create") { _, _ ->
-            val newFolderName = input.text.toString()
-            if (newFolderName.isNotEmpty()) {
-                createNewFolder(newFolderName)
+
+//    private fun showCreateNewFolderDialog() {
+//        val builder = AlertDialog.Builder(this)
+//        builder.setTitle("Create New Folder")
+//        val input = android.widget.EditText(this)
+//        input.hint = "Enter folder name"
+//        builder.setView(input)
+//
+//        builder.setPositiveButton("Create") { _, _ ->
+//            val newFolderName = input.text.toString()
+//            if (newFolderName.isNotEmpty()) {
+//                createNewFolder(newFolderName)
+//            } else {
+//                Toast.makeText(this, "Folder name cannot be empty", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//
+//        builder.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
+//        builder.show()
+//    }
+
+    private fun showCreateNewFolderDialog() {
+        // Inflate the new dialog layout
+        val dialogView = layoutInflater.inflate(R.layout.dialog_create_new_folder, null)
+
+        // Initialize dialog elements
+        val folderNameEditText = dialogView.findViewById<EditText>(R.id.folderNameEditText)
+        val errorMessageText = dialogView.findViewById<TextView>(R.id.errorMessageText)
+        val createFolderButton = dialogView.findViewById<Button>(R.id.btnCreateFolder)
+        val cancelButton = dialogView.findViewById<Button>(R.id.btnCancelFolderCreation)
+
+        // Create the dialog
+        val folderDialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        // Create button click listener
+        createFolderButton.setOnClickListener {
+            val folderName = folderNameEditText.text.toString().trim()
+
+            if (folderName.isEmpty()) {
+                // Show error if folder name is empty
+                errorMessageText.visibility = View.VISIBLE
             } else {
-                Toast.makeText(this, "Folder name cannot be empty", Toast.LENGTH_SHORT).show()
+                // Hide error message and create folder
+                errorMessageText.visibility = View.GONE
+                createNewFolder(folderName) // Call your function to create the folder
+                folderDialog.dismiss() // Dismiss the dialog after folder creation
             }
         }
 
-        builder.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
-        builder.show()
+        // Cancel button click listener
+        cancelButton.setOnClickListener {
+            folderDialog.dismiss() // Simply dismiss the dialog
+        }
+
+        // Show the dialog
+        folderDialog.show()
     }
+
 
     private fun createNewFolder(folderName: String) {
         // Create a new folder and save it in the `userfolder` table
@@ -173,6 +281,65 @@ class ProductDetailsActivity : AppCompatActivity() {
             Toast.makeText(this@ProductDetailsActivity, "Failed to create folder", Toast.LENGTH_SHORT).show()
         }
     }
+
+//    private fun saveProductToFolder(folderId: String, isNewFolder: Boolean) {
+//        // Fetch product details by productId from the database
+//        productsRef.orderByChild("id").equalTo(productId)
+//            .addListenerForSingleValueEvent(object : ValueEventListener {
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    var productName: String? = null
+//                    var productId: String? = null
+//
+//                    if (snapshot.exists()) {
+//                        for (productSnapshot in snapshot.children) {
+//                            productName = productSnapshot.child("productName").getValue(String::class.java)
+//                            productId = productSnapshot.child("id").getValue(String::class.java)
+//                        }
+//
+//                        if (productName != null && productId != null) {
+//                            // Check if product already exists in the folder
+//                            val folderRef = userFoldersRef.child(folderId).child("folderItems")
+//                            folderRef.orderByChild("itemId").equalTo(productId).addListenerForSingleValueEvent(object : ValueEventListener {
+//                                override fun onDataChange(folderSnapshot: DataSnapshot) {
+//                                    if (folderSnapshot.exists()) {
+//                                        // Product already exists in the folder
+//                                        Toast.makeText(this@ProductDetailsActivity, "Product already exists in this folder", Toast.LENGTH_SHORT).show()
+//                                    } else {
+//                                        // Add the product to the folder
+//                                        val newItem = mapOf(
+//                                            "itemName" to productName,
+//                                            "itemId" to productId
+//                                        )
+//
+//                                        folderRef.push().setValue(newItem).addOnSuccessListener {
+//                                            Toast.makeText(this@ProductDetailsActivity, "Product added to folder", Toast.LENGTH_SHORT).show()
+//
+//                                            // Only add folder ID to user's folder list if it's a new folder
+//                                            if (isNewFolder) {
+//                                                val userFolderRef = database.child("folder")
+//                                                userFolderRef.push().setValue(mapOf("folderId" to folderId))
+//                                            }
+//                                        }.addOnFailureListener {
+//                                            Toast.makeText(this@ProductDetailsActivity, "Failed to add product to folder", Toast.LENGTH_SHORT).show()
+//                                        }
+//                                    }
+//                                }
+//
+//                                override fun onCancelled(error: DatabaseError) {
+//                                    Toast.makeText(this@ProductDetailsActivity, "Failed to check if product exists in the folder", Toast.LENGTH_SHORT).show()
+//                                }
+//                            })
+//                        }
+//                    } else {
+//                        Toast.makeText(this@ProductDetailsActivity, "No product found with this ID", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//
+//                override fun onCancelled(error: DatabaseError) {
+//                    Toast.makeText(this@ProductDetailsActivity, "Failed to fetch product data", Toast.LENGTH_SHORT).show()
+//                }
+//            })
+//    }
 
     private fun saveProductToFolder(folderId: String, isNewFolder: Boolean) {
         // Fetch product details by productId from the database
@@ -197,10 +364,11 @@ class ProductDetailsActivity : AppCompatActivity() {
                                         // Product already exists in the folder
                                         Toast.makeText(this@ProductDetailsActivity, "Product already exists in this folder", Toast.LENGTH_SHORT).show()
                                     } else {
-                                        // Add the product to the folder
+                                        // Add the product to the folder with addedByUserId
                                         val newItem = mapOf(
                                             "itemName" to productName,
-                                            "itemId" to productId
+                                            "itemId" to productId,
+                                            "addedByUserId" to userId // This is the user who added the product
                                         )
 
                                         folderRef.push().setValue(newItem).addOnSuccessListener {
@@ -232,6 +400,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 }
             })
     }
+
 
     private fun fetchDataFromDatabase() {
         Log.d("ProductDetails", "Product ID: $productId")
@@ -431,8 +600,19 @@ class ProductDetailsActivity : AppCompatActivity() {
         val confirmAddToCartButton: Button = view.findViewById(R.id.confirmAddToCartButton)
 
         confirmAddToCartButton.setOnClickListener {
-            val selectedChip = colorChipGroup.findViewById<Chip>(colorChipGroup.checkedChipId)
-            val selectedDesign = selectedChip?.text.toString()
+//            val selectedChip = colorChipGroup.findViewById<Chip>(colorChipGroup.checkedChipId)
+//            val selectedDesign = selectedChip?.text.toString()
+
+            val selectedChipId = colorChipGroup.checkedChipId
+
+            if (selectedChipId == View.NO_ID) {
+                Toast.makeText(this, "Please select the design/color before adding to cart", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val selectedChip = colorChipGroup.findViewById<Chip>(selectedChipId)
+            val selectedDesign = selectedChip.text.toString()
+
             val quantity = quantityEditText.text.toString().toIntOrNull() ?: 1
             val stock = selectedStockTextView.text.toString().replace("Stock: ", "").toIntOrNull() ?: 0
 
@@ -452,6 +632,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val userId = sharedPreferences.getString("user_id", null)
         val cartRef = FirebaseDatabase.getInstance().getReference("user/$userId/cart")
+
 
         if (userId == null) {
             Toast.makeText(this, "User ID is missing", Toast.LENGTH_SHORT).show()
@@ -506,7 +687,6 @@ class ProductDetailsActivity : AppCompatActivity() {
             })
     }
 
-
     private fun loadProductSpecs(selectedStockTextView: TextView, selectedPriceTextView: TextView) {
         if (productId == null) return
 
@@ -519,27 +699,21 @@ class ProductDetailsActivity : AppCompatActivity() {
                     if (snapshot.exists()) {
                         // Get the product node
                         for (productSnapshot in snapshot.children) {
-                            // Access the productSpecs array
                             val productSpecsSnapshot = productSnapshot.child("productSpecs")
 
                             // Variable to hold the first chip view for default selection
                             var firstChip: Chip? = null
 
-                            // Iterate over each spec to create color chips
                             for (specSnapshot in productSpecsSnapshot.children) {
                                 val colorName = specSnapshot.child("productDesign").getValue(String::class.java)
                                 val price = specSnapshot.child("productPrice").getValue(Double::class.java)
                                 val stock = specSnapshot.child("productStock").getValue(Int::class.java)
 
-                                // Ensure price and stock are not null
                                 if (colorName != null && price != null && stock != null) {
                                     val chip = Chip(this@ProductDetailsActivity)
                                     chip.text = colorName
                                     chip.isCheckable = true
-//                                    chip.isClickable = true
-//                                    chip.chipBackgroundColor = ColorStateList.valueOf(
-//                                        ContextCompat.getColor(this@ProductDetailsActivity, R.color.default_chip_color)
-//                                    )
+                                    chip.id = View.generateViewId()
 
                                     // Disable chip if stock is 0
                                     chip.isClickable = stock > 0
@@ -553,41 +727,44 @@ class ProductDetailsActivity : AppCompatActivity() {
                                         )
                                     }
 
-                                    // Store price and stock in the chip's tag
                                     chip.tag = Pair(price, stock)
 
-                                    // Set the chip click listener
-                                    chip.setOnClickListener {
-                                        val isSelected = chip.isChecked
-                                        val chipColor = if (isSelected) {
-                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.selected_chip_color)
-                                        } else {
-                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.default_chip_color)
-                                        }
-                                        chip.chipBackgroundColor = ColorStateList.valueOf(chipColor)
-
-                                        // Get the price and stock from the chip's tag
-                                        val (selectedPrice, selectedStock) = chip.tag as Pair<Double, Int>
-
-                                        selectedStockTextView.text = "Stock: $selectedStock"
-                                        selectedPriceTextView.text = "RM: %.2f".format(selectedPrice)
-                                    }
-
-                                    // Add the chip to the ChipGroup
                                     colorChipGroup.addView(chip)
 
-                                    // Store the first chip for default selection
-                                    if (firstChip == null) {
+                                    if (firstChip == null && stock > 0) {
                                         firstChip = chip
                                     }
                                 }
                             }
 
-                            // Default select the first chip if available
-                            firstChip?.isChecked = true
-                            // Optionally, update the price and stock text with the first chip's data
+                            // Handle selection logic for visual feedback and data update
+                            colorChipGroup.setOnCheckedChangeListener { group, checkedId ->
+                                for (i in 0 until group.childCount) {
+                                    val chip = group.getChildAt(i) as Chip
+
+                                    // Skip if not clickable (i.e., stock = 0)
+                                    if (!chip.isClickable) continue
+
+                                    if (chip.id == checkedId) {
+                                        chip.chipBackgroundColor = ColorStateList.valueOf(
+                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.selected_chip_color)
+                                        )
+
+                                        val (selectedPrice, selectedStock) = chip.tag as Pair<Double, Int>
+                                        selectedStockTextView.text = "Stock: $selectedStock"
+                                        selectedPriceTextView.text = "RM: %.2f".format(selectedPrice)
+                                    } else {
+                                        chip.chipBackgroundColor = ColorStateList.valueOf(
+                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.default_chip_color)
+                                        )
+                                    }
+                                }
+                            }
+
+                            // Default select the first available chip
                             if (firstChip != null) {
-                                val (selectedPrice, selectedStock) = firstChip!!.tag as Pair<Double, Int>
+                                firstChip.isChecked = true
+                                val (selectedPrice, selectedStock) = firstChip.tag as Pair<Double, Int>
                                 selectedStockTextView.text = "Stock: $selectedStock"
                                 selectedPriceTextView.text = "RM: %.2f".format(selectedPrice)
                             }
@@ -602,6 +779,104 @@ class ProductDetailsActivity : AppCompatActivity() {
                 }
             })
     }
+
+
+
+//    private fun loadProductSpecs(selectedStockTextView: TextView, selectedPriceTextView: TextView) {
+//        if (productId == null) return
+//
+//        // Query database to find the product with matching productId
+//        productsRef.orderByChild("id").equalTo(productId)
+//            .addListenerForSingleValueEvent(object : ValueEventListener {
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    colorChipGroup.removeAllViews()
+//
+//                    if (snapshot.exists()) {
+//                        // Get the product node
+//                        for (productSnapshot in snapshot.children) {
+//                            // Access the productSpecs array
+//                            val productSpecsSnapshot = productSnapshot.child("productSpecs")
+//
+//                            // Variable to hold the first chip view for default selection
+//                            var firstChip: Chip? = null
+//
+//                            // Iterate over each spec to create color chips
+//                            for (specSnapshot in productSpecsSnapshot.children) {
+//                                val colorName = specSnapshot.child("productDesign").getValue(String::class.java)
+//                                val price = specSnapshot.child("productPrice").getValue(Double::class.java)
+//                                val stock = specSnapshot.child("productStock").getValue(Int::class.java)
+//
+//                                // Ensure price and stock are not null
+//                                if (colorName != null && price != null && stock != null) {
+//                                    val chip = Chip(this@ProductDetailsActivity)
+//                                    chip.text = colorName
+//                                    chip.isCheckable = true
+////                                    chip.isClickable = true
+////                                    chip.chipBackgroundColor = ColorStateList.valueOf(
+////                                        ContextCompat.getColor(this@ProductDetailsActivity, R.color.default_chip_color)
+////                                    )
+//
+//                                    // Disable chip if stock is 0
+//                                    chip.isClickable = stock > 0
+//                                    if (stock == 0) {
+//                                        chip.chipBackgroundColor = ColorStateList.valueOf(
+//                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.disabled_chip_color)
+//                                        )
+//                                    } else {
+//                                        chip.chipBackgroundColor = ColorStateList.valueOf(
+//                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.default_chip_color)
+//                                        )
+//                                    }
+//
+//                                    // Store price and stock in the chip's tag
+//                                    chip.tag = Pair(price, stock)
+//
+//                                    // Set the chip click listener
+//                                    chip.setOnClickListener {
+//                                        val isSelected = chip.isChecked
+//                                        val chipColor = if (isSelected) {
+//                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.selected_chip_color)
+//                                        } else {
+//                                            ContextCompat.getColor(this@ProductDetailsActivity, R.color.default_chip_color)
+//                                        }
+//                                        chip.chipBackgroundColor = ColorStateList.valueOf(chipColor)
+//
+//                                        // Get the price and stock from the chip's tag
+//                                        val (selectedPrice, selectedStock) = chip.tag as Pair<Double, Int>
+//
+//                                        selectedStockTextView.text = "Stock: $selectedStock"
+//                                        selectedPriceTextView.text = "RM: %.2f".format(selectedPrice)
+//                                    }
+//
+//                                    // Add the chip to the ChipGroup
+//                                    colorChipGroup.addView(chip)
+//
+//                                    // Store the first chip for default selection
+//                                    if (firstChip == null) {
+//                                        firstChip = chip
+//                                    }
+//                                }
+//                            }
+//
+//                            // Default select the first chip if available
+//                            firstChip?.isChecked = true
+//                            // Optionally, update the price and stock text with the first chip's data
+//                            if (firstChip != null) {
+//                                val (selectedPrice, selectedStock) = firstChip!!.tag as Pair<Double, Int>
+//                                selectedStockTextView.text = "Stock: $selectedStock"
+//                                selectedPriceTextView.text = "RM: %.2f".format(selectedPrice)
+//                            }
+//                        }
+//                    } else {
+//                        Log.e("ProductDetails", "No productSpecs found for productId: $productId")
+//                    }
+//                }
+//
+//                override fun onCancelled(error: DatabaseError) {
+//                    Log.e("ProductDetails", "Failed to load product specs: ${error.message}")
+//                }
+//            })
+//    }
 
     private fun loadProductImage(productImageView: ImageView) {
         if (productId == null) return

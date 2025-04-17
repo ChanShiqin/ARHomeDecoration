@@ -9,7 +9,7 @@ object RetrofitInstance {
         Retrofit.Builder()
             // tx house wifi
 //            .baseUrl("http://192.168.0.123/stripe-android-api/")
-            // phone hostspot
+            // phone hostspotx
 //            .baseUrl("http://172.20.10.4/stripe-android-api/")
             // home wifi
             .baseUrl("http://192.168.0.249/stripe-android-api/")

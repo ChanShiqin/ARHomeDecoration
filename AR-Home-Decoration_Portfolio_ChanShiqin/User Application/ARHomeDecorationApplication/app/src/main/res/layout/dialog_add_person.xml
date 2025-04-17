@@ -3,14 +3,129 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="@android:color/white"
+    android:layout_gravity="center">
 
+    <!-- Dialog Title -->
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Add Friends to Folder"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/dialogDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Invite friends by email to add them to this folder and share the products together."
+        android:textColor="#616161"
+        android:textSize="12sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Email Input Field -->
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter email"
+        android:hint="Enter Email"
+        android:textColorHint="#616161"
+        android:textColor="#333333"
+        android:background="@drawable/edit_text_bg"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
         android:inputType="textEmailAddress" />
 
+    <!-- Error Message TextView (Hidden by default) -->
+    <TextView
+        android:id="@+id/errorMessageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email cannot be empty or invalid!"
+        android:textColor="#F44336"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+<!--    &lt;!&ndash; Add Button &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/btnAddPerson"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Add Person"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:backgroundTint="#4CAF50"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:layout_marginBottom="8dp" />-->
+
+<!--    &lt;!&ndash; Cancel Button &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/btnCancel"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Cancel"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:backgroundTint="#FF6A6A"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textAllCaps="false" />-->
+
+    <!-- Button Container (Horizontal) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <!-- Add Button -->
+        <Button
+            android:id="@+id/btnAddPerson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#4CAF50"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:layout_marginEnd="15dp" />
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF6A6A"
+            android:textSize="15sp"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
 </LinearLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="16dp">-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/emailEditText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter email"-->
+<!--        android:inputType="textEmailAddress" />-->
+
+<!--</LinearLayout>-->
 

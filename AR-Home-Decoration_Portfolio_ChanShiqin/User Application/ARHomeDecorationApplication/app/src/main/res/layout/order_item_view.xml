@@ -39,6 +39,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/productDetailsBox"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -59,12 +60,25 @@
 
             <TextView
                 android:id="@+id/productName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:text="InScent Fragrance 10ml Eacu de"
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/productNameText"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="left"-->
+<!--                android:text="InScent Fragrance 10ml Eacu de"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="13sp"-->
+<!--                android:ellipsize="end"-->
+<!--                android:maxLines="1" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"

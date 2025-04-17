@@ -154,7 +154,7 @@
                     android:id="@+id/hotItemsRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"/>
+                    android:orientation="vertical" />
 
 
                 <!--                <LinearLayout-->
@@ -170,7 +170,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="15dp" />
 
         </LinearLayout>
 

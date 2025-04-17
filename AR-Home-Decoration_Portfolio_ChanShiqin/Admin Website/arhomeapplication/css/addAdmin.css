@@ -157,6 +157,29 @@ textarea {
     font-size: 14px; 
 }
 
+select#adminDepartment, #adminRoleLevel {
+    background-color: #f0f0f0 !important;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #a9a9a9;
+}
+
+select#adminDepartment.option-selected {
+    font-size: 14px; /* Font size after selection */
+    color: #333; /* Adjust color to improve readability */
+}
+
+select#adminRoleLevel.option-selected {
+    font-size: 14px; /* Font size after selection */
+    color: #333; /* Adjust color to improve readability */
+}
+
+select.inputfield option.placeholder {
+    color: #a9a9a9;
+}
+
 #adminProfilePicPreview {
     width: 100px; /* Adjust the size */
     height: 100px;

@@ -41,6 +41,9 @@ $db = new firebaseRDB($databaseURL);
 //     }
 // }
 
+$adminDepartment = $_SESSION['admin']['adminDepartment'];
+$adminRoleLevel = $_SESSION['admin']['adminRoleLevel'];
+
 ?>
 
 <!DOCTYPE html>
@@ -62,17 +65,33 @@ $db = new firebaseRDB($databaseURL);
         <div class="logo" id="logo">
             <a href="#" target="_top" id="logo-text">AuraDecor.</a>
         </div>
-
+<!-- 
         <div class="sidenav">
             <a href="dashboard.php" target="_top"><i class="bi bi-columns-gap"></i> <span class="nav-text">Dashboard</span></a>
             <a href="category.php" target="_top"><i class="bi bi-diagram-3"></i> <span class="nav-text">Category</span></a>
             <a href="supplier.php" target="_top" class="suppliericon"><i class="fas fa-handshake"></i><span class="nav-text">Supplier</span></a>
             <a href="product.php" target="_top"><i class="bi bi-box-seam"></i> <span class="nav-text">Product</span></a>
-            <!-- <a href="#" target="_top"><i class="bi bi-megaphone"></i> <span class="nav-text">Promotion</span></a> -->
             <a href="customer.php" target="_top"><i class="bi bi-person-square"></i> <span class="nav-text">Customer</span></a>
             <a href="order.php" target="_top"><i class="bi bi-card-checklist"></i> <span class="nav-text">Order</span></a>
             <a href="admin.php" target="_top"><i class="bi bi-person-gear"></i> <span class="nav-text">Admin</span></a>
+        </div> -->
+
+                    <!-- <a href="#" target="_top"><i class="bi bi-megaphone"></i> <span class="nav-text">Promotion</span></a> -->
+
+        <div class="sidenav">
+            <?php if ($adminDepartment === "Delivery" && $adminRoleLevel == 1): ?>
+                <a href="order.php" target="_top"><i class="bi bi-card-checklist"></i> <span class="nav-text">Order</span></a>
+            <?php else: ?>
+                <a href="dashboard.php" target="_top"><i class="bi bi-columns-gap"></i> <span class="nav-text">Dashboard</span></a>
+                <a href="category.php" target="_top"><i class="bi bi-diagram-3"></i> <span class="nav-text">Category</span></a>
+                <a href="supplier.php" target="_top" class="suppliericon"><i class="fas fa-handshake"></i><span class="nav-text">Supplier</span></a>
+                <a href="product.php" target="_top"><i class="bi bi-box-seam"></i> <span class="nav-text">Product</span></a>
+                <a href="customer.php" target="_top"><i class="bi bi-person-square"></i> <span class="nav-text">Customer</span></a>
+                <a href="order.php" target="_top"><i class="bi bi-card-checklist"></i> <span class="nav-text">Order</span></a>
+                <a href="admin.php" target="_top"><i class="bi bi-person-gear"></i> <span class="nav-text">Admin</span></a>
+            <?php endif; ?>
         </div>
+
 
         <div class="settingbottom">
             <a href="../actions/action_logout.php" target="_top"><i class="bi bi-box-arrow-left"></i> <span class="nav-text">Logout</span></a>

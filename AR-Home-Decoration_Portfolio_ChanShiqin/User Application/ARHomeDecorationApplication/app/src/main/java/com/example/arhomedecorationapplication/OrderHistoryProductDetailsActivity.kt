@@ -98,6 +98,153 @@ class OrderHistoryProductDetailsActivity : AppCompatActivity() {
         })
     }
 
+//    private fun fetchOrderItems() {
+//        orderRef.addListenerForSingleValueEvent(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (itemSnapshot in snapshot.children) {
+//                    val productId = itemSnapshot.child("productId").value.toString()
+//                    val productDesign = itemSnapshot.child("productDesign").value.toString()
+//                    val productName = itemSnapshot.child("productName").value.toString()
+//                    val productPrice = itemSnapshot.child("productPrice").value.toString().toDouble()
+//                    val productQuantity = itemSnapshot.child("productQuantity").value.toString().toInt()
+//
+//                    // Fetch product images using the productId
+////                    fetchProductImage(productId, productName, productDesign, productPrice, productQuantity)
+//
+//                    val itemView = LayoutInflater.from(this@OrderHistoryProductDetailsActivity)
+//                        .inflate(R.layout.order_history_product_item_view, productDetailsItemContainer, false)
+//
+////                    val productImageView: ImageView = itemView.findViewById(R.id.productImageView)
+//                    val productNameText: TextView = itemView.findViewById(R.id.productNameText)
+//                    val productDesignText: TextView = itemView.findViewById(R.id.productDesignText)
+//                    val productQuantityText: TextView = itemView.findViewById(R.id.productQuantityText)
+//                    val productPriceText: TextView = itemView.findViewById(R.id.productPriceText)
+//
+//                    val formattedProductPrice = String.format("%.2f", productPrice)
+//
+//                    // Set data in the item view
+//                    productNameText.text = productName
+//                    productDesignText.text = productDesign
+//                    productQuantityText.text = "x$productQuantity"
+//                    productPriceText.text = "RM $formattedProductPrice"
+//
+//                    // Set the click listener on the product details container (or another clickable element)
+//                    val productDetailsItemContainer: LinearLayout = itemView.findViewById(R.id.orderHistoryProductDetailsBox)
+//
+//                    productDetailsItemContainer.setOnClickListener {
+//                        val intent = Intent(this@OrderHistoryProductDetailsActivity, ProductDetailsActivity::class.java)
+//                        intent.putExtra("productId", productId) // Pass the productId as an extra
+//                        startActivity(intent)
+//                    }
+//
+//                    productRef.addListenerForSingleValueEvent(object : ValueEventListener {
+//                        override fun onDataChange(snapshot: DataSnapshot) {
+//                            for (productSnapshot in snapshot.children) {
+//                                val dbProductId = productSnapshot.child("id").getValue(String::class.java)
+//
+//                                if (dbProductId == productId) {
+//
+//
+//                                    val imageBase64 = productSnapshot.child("productImages").child("0").getValue(String::class.java)
+//                                    val productImageView = itemView.findViewById<ImageView>(R.id.productImageView)
+//
+//                                    if (!imageBase64.isNullOrEmpty()) {
+//                                        val decodedBitmap = decodeBase64ToBitmap(imageBase64)
+//                                        if (decodedBitmap != null) {
+//                                            productImageView.setImageBitmap(decodedBitmap)
+//                                        } else {
+//                                            productImageView.setImageResource(R.drawable.product1_image) // Default image placeholder
+//                                        }
+//                                    } else {
+//                                        productImageView.setImageResource(R.drawable.product1_image) // Default image placeholder
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        override fun onCancelled(error: DatabaseError) {
+//                            Log.e("CartActivity", "Failed to load product details: ${error.message}")
+//                        }
+//                    })
+//
+//                    // Add the item view to the container
+//                    productDetailsItemContainer.addView(itemView)
+//
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Toast.makeText(this@OrderHistoryProductDetailsActivity, "Failed to load order items", Toast.LENGTH_SHORT).show()
+//            }
+//
+//
+//        })
+//    }
+
+//    private fun fetchOrderItems() {
+//        orderRef.addListenerForSingleValueEvent(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (itemSnapshot in snapshot.children) {
+//                    val productId = itemSnapshot.child("productId").value.toString()
+//                    val productDesign = itemSnapshot.child("productDesign").value.toString()
+//                    val productName = itemSnapshot.child("productName").value.toString()
+//                    val productPrice = itemSnapshot.child("productPrice").value.toString().toDouble()
+//                    val productQuantity = itemSnapshot.child("productQuantity").value.toString().toInt()
+//
+//                    val itemView = LayoutInflater.from(this@OrderHistoryProductDetailsActivity)
+//                        .inflate(R.layout.order_history_product_item_view, productDetailsItemContainer, false)
+//
+//                    val productNameText: TextView = itemView.findViewById(R.id.productNameText)
+//                    val productDesignText: TextView = itemView.findViewById(R.id.productDesignText)
+//                    val productQuantityText: TextView = itemView.findViewById(R.id.productQuantityText)
+//                    val productPriceText: TextView = itemView.findViewById(R.id.productPriceText)
+//
+//                    val formattedProductPrice = String.format("%.2f", productPrice)
+//
+//                    productNameText.text = productName
+//                    productDesignText.text = productDesign
+//                    productQuantityText.text = "x$productQuantity"
+//                    productPriceText.text = "RM $formattedProductPrice"
+//
+//                    productRef.addListenerForSingleValueEvent(object : ValueEventListener {
+//                        override fun onDataChange(snapshot: DataSnapshot) {
+//                            for (productSnapshot in snapshot.children) {
+//                                val dbProductId = productSnapshot.child("id").getValue(String::class.java)
+//
+//                                if (dbProductId == productId) {
+//                                    val imageBase64 = productSnapshot.child("productImages").child("0").getValue(String::class.java)
+//                                    val productImageView = itemView.findViewById<ImageView>(R.id.productImageView)
+//
+//                                    if (!imageBase64.isNullOrEmpty()) {
+//                                        val decodedBitmap = decodeBase64ToBitmap(imageBase64)
+//                                        if (decodedBitmap != null) {
+//                                            productImageView.setImageBitmap(decodedBitmap)
+//                                        } else {
+//                                            productImageView.setImageResource(R.drawable.product1_image) // Default image placeholder
+//                                        }
+//                                    } else {
+//                                        productImageView.setImageResource(R.drawable.product1_image) // Default image placeholder
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        override fun onCancelled(error: DatabaseError) {
+//                            Log.e("CartActivity", "Failed to load product details: ${error.message}")
+//                        }
+//                    })
+//
+//                    // Add the item view to the container
+//                    productDetailsItemContainer.addView(itemView)
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Toast.makeText(this@OrderHistoryProductDetailsActivity, "Failed to load order items", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//
+//        // here to paste, gpt, how to do it here? thankyou
+//    }
+
     private fun fetchOrderItems() {
         orderRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -108,13 +255,9 @@ class OrderHistoryProductDetailsActivity : AppCompatActivity() {
                     val productPrice = itemSnapshot.child("productPrice").value.toString().toDouble()
                     val productQuantity = itemSnapshot.child("productQuantity").value.toString().toInt()
 
-                    // Fetch product images using the productId
-//                    fetchProductImage(productId, productName, productDesign, productPrice, productQuantity)
-
                     val itemView = LayoutInflater.from(this@OrderHistoryProductDetailsActivity)
                         .inflate(R.layout.order_history_product_item_view, productDetailsItemContainer, false)
 
-//                    val productImageView: ImageView = itemView.findViewById(R.id.productImageView)
                     val productNameText: TextView = itemView.findViewById(R.id.productNameText)
                     val productDesignText: TextView = itemView.findViewById(R.id.productDesignText)
                     val productQuantityText: TextView = itemView.findViewById(R.id.productQuantityText)
@@ -122,7 +265,6 @@ class OrderHistoryProductDetailsActivity : AppCompatActivity() {
 
                     val formattedProductPrice = String.format("%.2f", productPrice)
 
-                    // Set data in the item view
                     productNameText.text = productName
                     productDesignText.text = productDesign
                     productQuantityText.text = "x$productQuantity"
@@ -134,8 +276,6 @@ class OrderHistoryProductDetailsActivity : AppCompatActivity() {
                                 val dbProductId = productSnapshot.child("id").getValue(String::class.java)
 
                                 if (dbProductId == productId) {
-
-
                                     val imageBase64 = productSnapshot.child("productImages").child("0").getValue(String::class.java)
                                     val productImageView = itemView.findViewById<ImageView>(R.id.productImageView)
 
@@ -157,10 +297,13 @@ class OrderHistoryProductDetailsActivity : AppCompatActivity() {
                         }
                     })
 
-
-
                     // Add the item view to the container
                     productDetailsItemContainer.addView(itemView)
+
+                    // Set the click listener for navigating to ProductDetailsActivity
+                    itemView.setOnClickListener {
+                        navigateToProductDetailsActivity(productId) // Call the function to navigate outside of the listener
+                    }
                 }
             }
 
@@ -169,6 +312,15 @@ class OrderHistoryProductDetailsActivity : AppCompatActivity() {
             }
         })
     }
+
+    // Method to navigate outside of the Firebase listener (on the main thread)
+    private fun navigateToProductDetailsActivity(productId: String) {
+        val intent = Intent(this@OrderHistoryProductDetailsActivity, ProductDetailsActivity::class.java)
+        intent.putExtra("productId", productId) // Pass the productId as an extra
+        startActivity(intent)
+    }
+
+
 
     private fun decodeBase64ToBitmap(base64String: String): Bitmap? {
         return try {

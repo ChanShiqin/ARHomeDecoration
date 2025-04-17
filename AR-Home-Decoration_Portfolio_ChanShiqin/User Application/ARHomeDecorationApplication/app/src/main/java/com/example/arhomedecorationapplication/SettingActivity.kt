@@ -187,6 +187,16 @@ class SettingActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Find the viewDetails button within the orderView
+        val productDetailsBox: LinearLayout = orderView.findViewById(R.id.productDetailsBox)
+
+        // Set a click listener to navigate to the OrderHistoryProductDetailsActivity with the orderId
+        productDetailsBox.setOnClickListener {
+            val intent = Intent(this, ProductDetailsActivity::class.java)
+            intent.putExtra("productId", productId) // Pass the orderId as an extra
+            startActivity(intent)
+        }
+
         productRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (productSnapshot in snapshot.children) {

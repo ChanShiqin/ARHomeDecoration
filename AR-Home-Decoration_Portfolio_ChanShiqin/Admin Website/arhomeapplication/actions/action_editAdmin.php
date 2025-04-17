@@ -12,6 +12,8 @@ $adminProfilePic = isset($_FILES['adminProfilePic']) ? $_FILES['adminProfilePic'
 $adminName = $_POST['adminName'];
 $adminPhoneNo = $_POST['adminPhoneNo'];
 $adminEmail = $_POST['adminEmail'];
+$adminDepartment = $_POST['adminDepartment'];
+$adminRoleLevel = $_POST['adminRoleLevel'];
 $adminPassword = $_POST['adminPassword'];
 
 // Prepare data to update
@@ -19,6 +21,8 @@ $updatedData = [
     'adminName' => $adminName,
     'adminPhoneNo' => $adminPhoneNo,
     'adminEmail' => $adminEmail,
+    'adminDepartment' => $adminDepartment,
+    'adminRoleLevel' => $adminRoleLevel,
     'adminPassword' => $adminPassword
 ];
 

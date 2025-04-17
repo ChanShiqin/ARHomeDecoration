@@ -1,7 +1,10 @@
 package com.example.arhomedecorationapplication
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -37,6 +40,7 @@ class PaymentActivity : AppCompatActivity(){
     private var selectedItems: ArrayList<CartItem>? = null
     private var selectedCartItems: ArrayList<CartItem> = arrayListOf()
     private lateinit var cartReference: DatabaseReference
+    private lateinit var productRef: DatabaseReference
 
     private lateinit var binding: ActivityPaymentBinding
     private lateinit var database: DatabaseReference
@@ -127,8 +131,48 @@ class PaymentActivity : AppCompatActivity(){
                 productImageView.setImageResource(R.drawable.product1_image)
             }
 
+            // 🔁 Fetch product image (Base64) from Firebase using productId
+            val productId = cartItem.productId
+            val productRef = FirebaseDatabase.getInstance().getReference("product") // Adjust path if needed
+
+            productRef.orderByChild("id").equalTo(productId)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (productSnapshot in snapshot.children) {
+                            val imageBase64 = productSnapshot.child("productImages").child("0").getValue(String::class.java)
+                            if (!imageBase64.isNullOrEmpty()) {
+                                val bitmap = decodeBase64ToBitmap(imageBase64)
+                                if (bitmap != null) {
+                                    productImageView.setImageBitmap(bitmap)
+                                } else {
+                                    productImageView.setImageResource(R.drawable.product1_image)
+                                }
+                            } else {
+                                productImageView.setImageResource(R.drawable.product1_image)
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.e("CartActivity", "Image load error: ${error.message}")
+                        productImageView.setImageResource(R.drawable.product1_image)
+                    }
+                })
+
             // Add the inflated view to the container
             itemsContainer.addView(itemView)
+        }
+
+    }
+
+
+    private fun decodeBase64ToBitmap(base64String: String): Bitmap? {
+        return try {
+            val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+        } catch (e: IllegalArgumentException) {
+            Log.e("ImageError", "Error decoding Base64 string: ${e.message}")
+            null
         }
     }
 
@@ -344,8 +388,6 @@ class PaymentActivity : AppCompatActivity(){
             }
         }
     }
-
-
 
     private fun removePaidCartItems() {
         selectedItems?.let { cartItems ->
